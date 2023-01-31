@@ -6,45 +6,65 @@ using OliverLoescher;
 
 public class InputBridge_FirstPersonPlayer : InputBridge_Base
 {
-    [SerializeField]
-		private InputModule_Vector2Update lookInput = new InputModule_Vector2Update();
-		[SerializeField]
-		private InputModule_Vector2 lookDeltaInput = new InputModule_Vector2();
-		[SerializeField]
-		private InputModule_Scroll zoomInput = new InputModule_Scroll();
+	[SerializeField]
+	private InputModule_Vector2Update lookInput = new InputModule_Vector2Update();
+	[SerializeField]
+	private InputModule_Vector2 lookDeltaInput = new InputModule_Vector2();
+	[SerializeField]
+	private InputModule_Vector2Update moveInput = new InputModule_Vector2Update();
+	[SerializeField]
+	private InputModule_Toggle crouchInput = new InputModule_Toggle();
+	[SerializeField]
+	private InputModule_Toggle sprintInput = new InputModule_Toggle();
+	[SerializeField]
+	private InputModule_Trigger jumpInput = new InputModule_Trigger();
+	[SerializeField]
+	private InputModule_Trigger interactInput = new InputModule_Trigger();
 
-		public InputModule_Vector2Update Look => lookInput;
-		public InputModule_Vector2 LookDelta => lookDeltaInput;
-		public InputModule_Scroll Zoom => zoomInput;
+	public InputModule_Vector2Update Look => lookInput;
+	public InputModule_Vector2 LookDelta => lookDeltaInput;
+	public InputModule_Vector2Update Move => moveInput;
+	public InputModule_Toggle Crouch => crouchInput;
+	public InputModule_Toggle Sprint => sprintInput;
+	public InputModule_Trigger Jump => jumpInput;
+	public InputModule_Trigger Interact => interactInput;
 
-		public override UnityEngine.InputSystem.InputActionMap Actions => InputSystem.Instance.FPS.Get();
-		public override IEnumerable<IInputModule> GetAllInputModules()
-		{
-			yield return lookInput;
-			yield return lookDeltaInput;
-			yield return zoomInput;
-		}
+	public override UnityEngine.InputSystem.InputActionMap Actions => InputSystem.Instance.FirstPersonController.Get();
+	public override IEnumerable<IInputModule> GetAllInputModules()
+	{
+		yield return lookInput;
+		yield return lookDeltaInput;
+		yield return moveInput;
+		yield return crouchInput;
+		yield return sprintInput;
+		yield return jumpInput;
+		yield return interactInput;
+	}
 
-		protected override void Awake()
-		{
-			lookInput.Initalize(InputSystem.Instance.Camera.Look, IsValid);
-			lookDeltaInput.Initalize(InputSystem.Instance.Camera.LookDelta, IsValid);
-			zoomInput.Initalize(InputSystem.Instance.Camera.Zoom, IsValid);
+	protected override void Awake()
+	{
+		lookInput.Initalize(InputSystem.Instance.FirstPersonController.CameraMove, IsValid);
+		lookDeltaInput.Initalize(InputSystem.Instance.FirstPersonController.CameraMoveDelta, IsValid);
+		moveInput.Initalize(InputSystem.Instance.FirstPersonController.Move, IsValid);
+		crouchInput.Initalize(InputSystem.Instance.FirstPersonController.Crouch, IsValid);
+		sprintInput.Initalize(InputSystem.Instance.FirstPersonController.Sprint, IsValid);
+		jumpInput.Initalize(InputSystem.Instance.FirstPersonController.Jump, IsValid);
+		interactInput.Initalize(InputSystem.Instance.FirstPersonController.Interact, IsValid);
 
-			base.Awake();
-		}
+		base.Awake();
+	}
 
-		protected override void OnEnable()
-		{
-			Cursor.lockState = CursorLockMode.Locked;
+	protected override void OnEnable()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
 
-			base.OnEnable();
-		}
+		base.OnEnable();
+	}
 
-		protected override void OnDisable()
-		{
-			Cursor.lockState = CursorLockMode.None;
+	protected override void OnDisable()
+	{
+		Cursor.lockState = CursorLockMode.None;
 
-			base.OnDisable();
-		}
+		base.OnDisable();
+	}
 }
