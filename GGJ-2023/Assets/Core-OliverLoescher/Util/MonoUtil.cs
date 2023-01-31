@@ -41,6 +41,7 @@ namespace OliverLoescher
 			public const int Last = int.MaxValue;
 		}
 
+		[System.Serializable]
 		public struct Updateable
 		{
 			private Action<float> action;

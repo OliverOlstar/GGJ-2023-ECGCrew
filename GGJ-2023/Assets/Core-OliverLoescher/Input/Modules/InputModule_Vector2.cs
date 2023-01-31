@@ -19,6 +19,7 @@ namespace OliverLoescher.Input
 		private bool normalize = false;
 		[BoxGroup, SerializeField]
 		private bool invertY = false;
+		// TODO: Add deadzone
 
 		[BoxGroup]
 		public UnityEventsUtil.Vector2Event onChanged;

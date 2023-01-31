@@ -7,11 +7,11 @@ using OliverLoescher;
 public class InputBridge_FirstPersonPlayer : InputBridge_Base
 {
 	[SerializeField]
-	private InputModule_Vector2Update lookInput = new InputModule_Vector2Update();
+	private InputModule_Vector2 lookInput = new InputModule_Vector2();
 	[SerializeField]
 	private InputModule_Vector2 lookDeltaInput = new InputModule_Vector2();
 	[SerializeField]
-	private InputModule_Vector2Update moveInput = new InputModule_Vector2Update();
+	private InputModule_Vector2 moveInput = new InputModule_Vector2();
 	[SerializeField]
 	private InputModule_Toggle crouchInput = new InputModule_Toggle();
 	[SerializeField]
@@ -21,9 +21,9 @@ public class InputBridge_FirstPersonPlayer : InputBridge_Base
 	[SerializeField]
 	private InputModule_Trigger interactInput = new InputModule_Trigger();
 
-	public InputModule_Vector2Update Look => lookInput;
+	public InputModule_Vector2 Look => lookInput;
 	public InputModule_Vector2 LookDelta => lookDeltaInput;
-	public InputModule_Vector2Update Move => moveInput;
+	public InputModule_Vector2 Move => moveInput;
 	public InputModule_Toggle Crouch => crouchInput;
 	public InputModule_Toggle Sprint => sprintInput;
 	public InputModule_Trigger Jump => jumpInput;
