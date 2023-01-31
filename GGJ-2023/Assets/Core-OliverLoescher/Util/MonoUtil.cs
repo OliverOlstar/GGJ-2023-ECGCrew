@@ -37,6 +37,7 @@ namespace OliverLoescher
 			public const int Default = 0;
 			public const int CharacterController = 400;
 			public const int ModelController = 500;
+			public const int PreCamera = 950;
 			public const int Camera = 1000;
 			public const int Last = int.MaxValue;
 		}
