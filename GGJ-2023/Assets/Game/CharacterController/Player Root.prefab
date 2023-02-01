@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3827981510785693933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63,14 +63,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbe84837966c3b42ae6dd4556b4d02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateable:
-    type: 2
-    priority: 950
   positionTransform: {fileID: 3827981510785693932}
-  bobbingTransform: {fileID: 0}
   sprintSpring: 50
-  springDamper: 7.25
-  crouchHeight: -0.8
+  springDamper: 8.5
 --- !u!1 &3827981511222998447
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3827981511679642252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -347,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3827981512196475551}
   - component: {fileID: 3827981512196475550}
+  - component: {fileID: 421671228}
   m_Layer: 0
   m_Name: Player Root
   m_TagString: Untagged
@@ -385,11 +381,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Input: {fileID: 3827981511222998445}
   Character: {fileID: 3827981512213513268}
-  Updateable:
-    type: 3
-    priority: 400
+  Crouch: {fileID: 421671228}
   moveSpeed: 700
-  drag: 5
+  moveDrag: 5
+  sprintSpeed: 1200
+  sprintDrag: 4
+  crouchSpeed: 550
+  crouchDrag: 6
+--- !u!114 &421671228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827981512196475544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a7b77e676b4d44ba7325ef95fa4ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 3827981511222998445}
+  camera: {fileID: 3827981510785693922}
+  character: {fileID: 3827981512213513268}
+  controller: {fileID: 3827981512196475550}
+  crouchCharacterHeight: 0.4
+  crouchCameraHeight: {x: 0.4, y: 1}
+  crouchCameraRadius: 0.125
+  crouchCameraLayerMask:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!1 &3827981512213513270
 GameObject:
   m_ObjectHideFlags: 0

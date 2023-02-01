@@ -94,6 +94,38 @@ namespace OliverLoescher
 			}
 		}
 
+		public abstract class MonoBehaviour : UnityEngine.MonoBehaviour
+		{
+			[SerializeField]
+			private MonoUtil.Updateable updateable = new MonoUtil.Updateable(MonoUtil.UpdateType.Default, MonoUtil.Priorities.Default);
+
+			protected virtual void OnEnable()
+			{
+				updateable.Register(Tick);
+			}
+
+			protected virtual void OnDisable()
+			{
+				updateable.Deregister();
+			}
+
+			protected abstract void Tick(float pDeltaTime);
+		}
+		
+		public abstract class MonoBehaviour2 : UnityEngine.MonoBehaviour
+		{
+			protected abstract MonoUtil.UpdateType UpdateType { get; }
+			protected abstract float UpdatePriority { get; }
+
+			private MonoUtil.Updateable updateable;
+
+			protected virtual void Awake() => updateable = new MonoUtil.Updateable(UpdateType, UpdatePriority);
+			protected virtual void OnEnable() => updateable.Register(Tick);
+			protected virtual void OnDisable() => updateable.Deregister();
+
+			protected abstract void Tick(float pDeltaTime);
+		}
+
 		private static List<Updateable> updatables = new List<Updateable>();
 		private static List<Updateable> earlyUpdatables = new List<Updateable>();
 		private static List<Updateable> lateUpdatables = new List<Updateable>();

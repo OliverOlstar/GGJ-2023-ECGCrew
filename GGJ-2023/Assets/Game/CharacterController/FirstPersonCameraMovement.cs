@@ -4,39 +4,24 @@ using UnityEngine;
 using OliverLoescher;
 using Sirenix.OdinInspector;
 
-public class FirstPersonCameraMovement : MonoBehaviour
+public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 {
 	[SerializeField]
-	private MonoUtil.Updateable updateable = new MonoUtil.Updateable(MonoUtil.UpdateType.Late, MonoUtil.Priorities.PreCamera);
-	[SerializeField]
 	private Transform positionTransform = null;
-	[SerializeField]
-	private Transform bobbingTransform = null;
 
-	[Header("Spring")]
-	[SerializeField, Range(0, 50)]
+	[Header("Spring"), SerializeField, Range(0, 90)]
 	private float sprintSpring = 45.0f;
 	[SerializeField, Range(0, 50)]
 	private float springDamper = 10.0f;
 
-	[Header("Crouch")]
-	[SerializeField]
-	private float crouchHeight = -1.0f;
-
 	private float defaultHeight = 0.0f;
 	private float targetHeight = 0.0f;
+	public float TargetHeight => targetHeight;
+
+	protected override MonoUtil.UpdateType UpdateType => MonoUtil.UpdateType.Late;
+	protected override float UpdatePriority => MonoUtil.Priorities.PreCamera;
 
 	private float heightVelocity = 0.0f;
-
-	void OnEnable()
-	{
-		updateable.Register(Tick);
-	}
-
-	void OnDisable()
-	{
-		updateable.Deregister();
-	}
 
 	void Start()
 	{
@@ -44,11 +29,10 @@ public class FirstPersonCameraMovement : MonoBehaviour
 		targetHeight = defaultHeight;
 	}
 
-	private void Tick(float pDeltaTime)
+	protected override void Tick(float pDeltaTime)
 	{
 		DoSpring(positionTransform.localPosition.y, targetHeight, pDeltaTime);
 	}
-
 
 	private void DoSpring(float pY, float pTargetY, float pDeltaTime)
 	{
@@ -58,8 +42,6 @@ public class FirstPersonCameraMovement : MonoBehaviour
 		positionTransform.localPosition = pY * Vector3.up;
 	}
 
-	public void SetCrouching(bool pCrouch)
-	{
-		targetHeight = pCrouch ? crouchHeight : defaultHeight;
-	}
+	public void SetHeight(float pHeight) => targetHeight = pHeight;
+	public void ResetHeight() => targetHeight = defaultHeight;
 }

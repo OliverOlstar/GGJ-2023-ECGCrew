@@ -14,6 +14,7 @@ namespace OliverLoescher.Input
 		[Space, HideInEditorMode, SerializeField, BoxGroup]
 		private bool input = false;
 		public bool Input => input;
+		public void SetInput(bool pInput) => input = pInput;
 
 		// Events
 		[BoxGroup]
