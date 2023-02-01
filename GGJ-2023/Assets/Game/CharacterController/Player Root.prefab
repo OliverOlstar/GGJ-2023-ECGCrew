@@ -169,34 +169,10 @@ MonoBehaviour:
         m_Calls: []
     onPerformed:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3827981510785693922}
-          m_TargetAssemblyTypeName: FirstPersonCameraMovement, Game
-          m_MethodName: SetCrouching
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
     onCanceled:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3827981510785693922}
-          m_TargetAssemblyTypeName: FirstPersonCameraMovement, Game
-          m_MethodName: SetCrouching
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   sprintInput:
     isToggle: 0
     input: 0
@@ -421,7 +397,7 @@ GameObject:
   - component: {fileID: 3827981512213513269}
   - component: {fileID: 3827981512213513268}
   - component: {fileID: 3827981512213513259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -26,7 +26,7 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 	[SerializeField, Min(0.0f)]
 	private float crouchDrag = 3;
 
-	private float speed => !Input.Crouch.Input ? !Input.Sprint.Input ? moveSpeed : sprintSpeed : (crouchSpeed * (Crouch.CrouchPercent * 0.75f + 0.25f));
+	private float speed => !Input.Crouch.Input ? !Input.Sprint.Input ? moveSpeed : sprintSpeed : (crouchSpeed * (Crouch.CrouchPercent * 0.5f + 0.5f));
 	private float drag => !Input.Crouch.Input ? !Input.Sprint.Input ? moveDrag : sprintDrag : (crouchDrag);
 
 	private Vector3 velocity = Vector3.zero;
