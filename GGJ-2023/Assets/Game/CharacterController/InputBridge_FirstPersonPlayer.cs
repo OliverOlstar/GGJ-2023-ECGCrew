@@ -6,6 +6,8 @@ using OliverLoescher;
 
 public class InputBridge_FirstPersonPlayer : InputBridge_Base
 {
+	public static InputBridge_FirstPersonPlayer Instance { get; private set; }
+
 	[SerializeField]
 	private InputModule_Vector2 lookInput = new InputModule_Vector2();
 	[SerializeField]
@@ -43,6 +45,8 @@ public class InputBridge_FirstPersonPlayer : InputBridge_Base
 
 	protected override void Awake()
 	{
+		Instance = this;
+
 		lookInput.Initalize(InputSystem.Instance.FirstPersonController.CameraMove, IsValid);
 		lookDeltaInput.Initalize(InputSystem.Instance.FirstPersonController.CameraMoveDelta, IsValid);
 		moveInput.Initalize(InputSystem.Instance.FirstPersonController.Move, IsValid);
