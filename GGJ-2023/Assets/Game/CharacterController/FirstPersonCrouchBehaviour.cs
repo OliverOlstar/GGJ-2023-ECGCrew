@@ -32,7 +32,6 @@ public class FirstPersonCrouchBehaviour : MonoUtil.MonoBehaviour2
 		get
 		{
 			float v = Util.SmoothStep(crouchCameraHeight.x, crouchCameraHeight.y, camera.TargetHeight);
-			Debug.Log(v);
 			return v;
 		}
 	}

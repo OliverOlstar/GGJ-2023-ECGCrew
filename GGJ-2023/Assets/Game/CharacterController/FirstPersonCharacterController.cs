@@ -9,6 +9,7 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 	public InputBridge_FirstPersonPlayer Input = null;
 	public CharacterController Character = null;
 	public FirstPersonCrouchBehaviour Crouch = null;
+	public FirstPersonCharacterStamina Stamina = null;
 
 	[Header("Stats")]
 	[SerializeField, Min(0.0f)]
@@ -16,18 +17,33 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 	[SerializeField, Min(0.0f)]
 	private float moveDrag = 2;
 
-	[SerializeField, Min(0.0f)]
+	[Space, SerializeField, Min(0.0f)]
 	private float sprintSpeed = 15;
 	[SerializeField, Min(0.0f)]
 	private float sprintDrag = 5;
+	[SerializeField]
+	private float staminaPerSecond = 1;
+	[SerializeField]
+	private float staminaOutSpeedScalar = 0.7f;
 	
-	[SerializeField, Min(0.0f)]
+	[Space, SerializeField, Min(0.0f)]
 	private float crouchSpeed = 5;
 	[SerializeField, Min(0.0f)]
 	private float crouchDrag = 3;
 
-	private float speed => !Input.Crouch.Input ? !Input.Sprint.Input ? moveSpeed : sprintSpeed : (crouchSpeed * (Crouch.CrouchPercent * 0.5f + 0.5f));
-	private float drag => !Input.Crouch.Input ? !Input.Sprint.Input ? moveDrag : sprintDrag : (crouchDrag);
+	private bool IsSprinting => !Stamina.isOut && Input.Sprint.Input;
+	private bool sprintInput = false;
+	private float speed => (!Input.Crouch.Input ? !IsSprinting ? moveSpeed : sprintSpeed : (crouchSpeed * (Crouch.CrouchPercent * 0.5f + 0.5f))) * StaminaSpeedScalar();
+	private float drag => !Input.Crouch.Input ? !IsSprinting ? moveDrag : sprintDrag : crouchDrag;
+
+	private float StaminaSpeedScalar()
+	{
+		if (!IsSprinting && (Stamina.isOut || Stamina.Get() < 0.25f))
+		{
+			return staminaOutSpeedScalar;
+		}
+		return 1.0f;
+	}
 
 	private Vector3 velocity = Vector3.zero;
 	public Vector3 Velocity => velocity;
@@ -45,12 +61,27 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 
     protected override void Tick(float pDeltaTime)
     {
-        AddMovement(pDeltaTime);
+		if (Input.Crouch.Input)
+		{
+			if (Stamina.Get() > 0.25f)
+			{
+				sprintInput = true;
+			}
+		}
+		else
+		{
+			sprintInput = false;
+		}
+
+        if (AddMovement(pDeltaTime) && IsSprinting)
+		{
+			Stamina.Modify(pDeltaTime * -staminaPerSecond);
+		}
 		velocity -= velocity * drag * pDeltaTime;
 		Character.SimpleMove(velocity * pDeltaTime);
     }
 
-	private void AddMovement(float pDeltaTime)
+	private bool AddMovement(float pDeltaTime)
 	{
 		Vector2 input = Input.Move.Input;
 		if (input.sqrMagnitude > 0.15f)
@@ -58,6 +89,8 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 			Vector3 move = Util.Horizontalize(ForwardTransform.forward) * input.y;
 			move += Util.Horizontalize(ForwardTransform.right) * input.x;
 			velocity += move * pDeltaTime * speed;
+			return true;
 		}
+		return false;
 	}
 }

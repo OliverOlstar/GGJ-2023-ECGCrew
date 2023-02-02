@@ -27,6 +27,10 @@ public class FirstPersonCamera : MonoUtil.MonoBehaviour2
 	}
 	private void OnDestroy()
 	{
+		if (InputBridge_FirstPersonPlayer.Instance == null)
+		{
+			return;
+		}
 		InputBridge_FirstPersonPlayer.Instance.Look.onChanged.RemoveListener(SetCameraMove);
 		InputBridge_FirstPersonPlayer.Instance.LookDelta.onChanged.RemoveListener(OnCameraMove);
 	}
