@@ -5090,6 +5090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeb3b567b8608c4abadb5bd92fe4242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainCamera: 1
   cameraTransform: {fileID: 3827981511679642243}
   cameraYClamp: {x: -40, y: 50}
   cameraXClamp: {x: -180, y: 180}
@@ -5273,6 +5274,15 @@ MonoBehaviour:
     m_RotationOrder: 4
   bobDampening: 2
   velocityMaxSpeed: 280
+  onStep:
+    m_PersistentCalls:
+      m_Calls: []
+  onCrouchStep:
+    m_PersistentCalls:
+      m_Calls: []
+  onLanded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3827981511222998447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5659,6 +5669,11 @@ MonoBehaviour:
   onMaxValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  breathParticles: {fileID: 497366032}
+  lowOnBreath: 0.8
+  lowBreathStamina: 50
+  outOfBreath: 1.6
+  breathAudio: {fileID: 0}
 --- !u!1 &3827981512213513270
 GameObject:
   m_ObjectHideFlags: 0

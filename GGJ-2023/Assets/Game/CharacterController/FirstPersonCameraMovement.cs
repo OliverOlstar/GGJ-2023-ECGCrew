@@ -35,6 +35,13 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 	[SerializeField]
 	private float velocityMaxSpeed = 10.0f;
 
+	[Space, FoldoutGroup("Events"), SerializeField]
+	private UnityEngine.Events.UnityEvent onStep = new UnityEngine.Events.UnityEvent();
+	[FoldoutGroup("Events"), SerializeField]
+	private UnityEngine.Events.UnityEvent onCrouchStep = new UnityEngine.Events.UnityEvent();
+	[FoldoutGroup("Events"), SerializeField]
+	private OliverLoescher.UnityEventsUtil.FloatEvent onLanded = new OliverLoescher.UnityEventsUtil.FloatEvent();
+
 	private float defaultHeight = 0.0f;
 	private float targetHeight = 0.0f;
 	public float TargetHeight => targetHeight;
@@ -51,7 +58,7 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 	{
 		defaultHeight = positionTransform.localPosition.y;
 		targetHeight = defaultHeight;
-		
+
 		grounded.OnEnter.AddListener(OnGrounded);
 	}
 
@@ -64,6 +71,7 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 	private void OnGrounded()
 	{
 		heightVelocity += controller.Character.velocity.y * landingForce;
+		onLanded?.Invoke(landingForce);
 	}
 
 	private void DoSpring(float pY, float pTargetY, float pDeltaTime)
@@ -80,7 +88,9 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 	private void DoBobbing(float pDeltaTime)
 	{
 		float velocity = Util.Horizontal(controller.Velocity).magnitude / velocityMaxSpeed;
+		float prevBobTime = bobTime;
 		bobTime += pDeltaTime * bobbingFrequencyCurve.Evaluate(velocity);
+		CheckForStep(prevBobTime, bobTime);
 		while (bobTime >= 1.0f)
 		{
 			bobTime -= 1.0f;
@@ -96,9 +106,29 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 			{
 				targetMagnitude = bobbingMagnitudeCurve.Evaluate(velocity);
 			}
+
 		}
 		bobMagnitude = Mathf.Lerp(bobMagnitude, targetMagnitude, pDeltaTime * bobDampening);
 		// Debug.Log($"Mag: {bobMagnitude} - velocity {velocity} - {bobbingFrequencyCurve.Evaluate(velocity)}");
 		bobbingTransform.localPosition = Vector3.up * bobbingMotionCurve.Evaluate(bobTime) * bobMagnitude;
+	}
+
+	private void CheckForStep(in float pPrev, in float pCurr)
+	{
+		if (!grounded.isGrounded)
+		{
+			return;
+		}
+		if ((pPrev > 0.5f && pCurr <= 0.5f) || (pPrev < 0.5f && pCurr >= 0.5f))
+		{
+			if (controller.Input.Crouch.Input)
+			{
+				onCrouchStep?.Invoke();
+			}
+			else
+			{
+				onStep?.Invoke();
+			}
+		}
 	}
 }

@@ -20,12 +20,12 @@ public class FirstPersonCamera : MonoUtil.MonoBehaviour2
 	protected override MonoUtil.UpdateType UpdateType => MonoUtil.UpdateType.Late;
 	protected override float UpdatePriority => MonoUtil.Priorities.Camera;
 
-	private void Start()
+	private void OnEnabled()
 	{
 		InputBridge_FirstPersonPlayer.Instance.Look.onChanged.AddListener(SetCameraMove);
 		InputBridge_FirstPersonPlayer.Instance.LookDelta.onChanged.AddListener(OnCameraMove);
 	}
-	private void OnDestroy()
+	private void OnDisabled()
 	{
 		if (InputBridge_FirstPersonPlayer.Instance == null)
 		{

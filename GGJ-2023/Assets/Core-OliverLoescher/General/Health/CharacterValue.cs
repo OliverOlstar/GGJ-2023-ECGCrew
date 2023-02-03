@@ -124,14 +124,17 @@ namespace OliverLoescher
         {
             yield return new WaitForSeconds(rechargeDelay);
 
+			float prevValue;
             while (value < Mathf.Min(maxValue, rechargeValueTo))
             {
+				prevValue = value;
                 value += Time.deltaTime * rechargeRate;
                 value = Mathf.Min(value, maxValue);
 
                 foreach (BarValue bar in UIBars)
                     bar.SetValue(value / maxValue);
 
+        		OnValueChanged(value, value - prevValue);
                 yield return null;
             }
 
