@@ -3270,7 +3270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeb3b567b8608c4abadb5bd92fe4242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMainCamera: 0
   cameraTransform: {fileID: 1517556107}
   cameraYClamp: {x: -35, y: 60}
   cameraXClamp: {x: -35, y: 35}
@@ -4460,17 +4459,17 @@ PrefabInstance:
     - target: {fileID: 899577614439190828, guid: 88126d26548a4b845bf4c629cda374f6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 899577614439190828, guid: 88126d26548a4b845bf4c629cda374f6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 899577614439190828, guid: 88126d26548a4b845bf4c629cda374f6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 899577614439190828, guid: 88126d26548a4b845bf4c629cda374f6,
         type: 3}
