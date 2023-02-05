@@ -149,6 +149,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		Vector3 playerPosition = player.transform.position;
 		if (Vector3.Distance(transform.position, playerPosition) > playerChaseDistance)
 		{
+			player = null;
 			IFSM stateMachine = this;
 			stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
 			return;
