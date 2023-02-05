@@ -1,0 +1,2071 @@
+fileFormatVersion: 2
+guid: 1b3b669f17522a744aa42b8439cdcce0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 2
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_0
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 960
+        width: 107
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5dee6c8812fcd4e8cb363c31ffdfb1
+      internalID: -621308874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_1
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 967
+        width: 92
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec2f1414e601934f82c5572681af827
+      internalID: 2090432053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 969
+        width: 79
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab59e95395b97f47b82813525505dfe
+      internalID: 938480905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 961
+        width: 67
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840d31d414a47404fb7f2971c2af64f2
+      internalID: -811857458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_4
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 961
+        width: 43
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95bfe3160b3b6744ab05aa7d59416e0a
+      internalID: 738686874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_5
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 974
+        width: 76
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d5b435fe2ffc44d9636d067b14ef78
+      internalID: 618086472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_6
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 952
+        width: 76
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c275af7f5dc794dbea353599512828
+      internalID: 1125680850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_7
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 971
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e90cc165c97c4e4f9b6a178e1d99d36
+      internalID: -342978812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_8
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 965
+        width: 84
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46eea51e3578b704092e76a50a89c076
+      internalID: -146549457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_9
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 976
+        width: 82
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f235e14d2affae541b6a9308ad8a0a96
+      internalID: -2012335466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_10
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 968
+        width: 80
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fbd5de769a89f4297da8e2407b32f0
+      internalID: 1312612672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_11
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 971
+        width: 93
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e312ab33d4d534daf57f2e562aecf5
+      internalID: 652760656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_12
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 984
+        width: 86
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1695f5cd186279849b08370d113d134c
+      internalID: 39414288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_13
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 784
+        width: 86
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60344ec1344805a47b56c7e0a37e2974
+      internalID: 275286332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 795
+        width: 96
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7021ff532a504bb44a31206d973f3271
+      internalID: -2111568908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_15
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 800
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9cb9bc3662ef5448aa9a6b4ad2a008
+      internalID: -563167195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_16
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 789
+        width: 80
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3904fe76238f0943817cfe860f9200f
+      internalID: 1577759009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_17
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 793
+        width: 104
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1356c0238532f7542bb0316bde62d84b
+      internalID: 579425114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_18
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 779
+        width: 80
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbaee64d152431344a65dd4b381d0488
+      internalID: -376647393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_19
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 781
+        width: 109
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774dafd922ec8b1418bf8ddf9d943b3e
+      internalID: -839770787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_20
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 804
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa238c537785ec40a1eb7e32954770f
+      internalID: -1619124679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_21
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 830
+        width: 44
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b86e9eeaa786d948acff4dfca3aa6dd
+      internalID: -1557445685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_22
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 857
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a22ec30b36bc8647b62b8981288a6c8
+      internalID: -731895793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_23
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 831
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e9be1a77970ef408dcb5f9201c5756
+      internalID: -697793175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_24
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 803
+        width: 94
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ada6bece4723a4e98d95cb5a530486
+      internalID: 1286550737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_25
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 823
+        width: 63
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29577c13939f36d4f97513ce26cdd990
+      internalID: 1340175210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_26
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 789
+        width: 92
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05279629b34566f4b96580150b9becd8
+      internalID: -982566124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_27
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 792
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b691035fe1ec8f459728a58e0243912
+      internalID: 531500739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_28
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 656
+        width: 94
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028b6e1f45182db49ae4f92ccb861606
+      internalID: -1122660011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_29
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 645
+        width: 110
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c38b65874d406a48b65526e4a797e4d
+      internalID: 1537822620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_30
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 619
+        width: 95
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130ff196092e380488bd107102013e34
+      internalID: -2012092115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_31
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 635
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049b01df972227740b014ba7b077e83d
+      internalID: -1986815142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_32
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 640
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b7d7893fca75d438cfe61e04d82165
+      internalID: -391123013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_33
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 620
+        width: 84
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727b614ed612c8a4aa66d2fffcbbad03
+      internalID: -1373196565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_34
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 640
+        width: 86
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f964f44e81c1241b71a05d8242f717
+      internalID: -1086361650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_35
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 642
+        width: 90
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2124fb0bf64ff6848826db77d85992b5
+      internalID: -260667080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_36
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 642
+        width: 74
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9237415df66218438394123afbcbbb4
+      internalID: -435288550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_37
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 642
+        width: 96
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525b8c7efcd0218449a786306cb7b336
+      internalID: -599159908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_38
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 632
+        width: 96
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211809609e564164fa153ebd064623a4
+      internalID: -1094747128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_39
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 624
+        width: 36
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fb1f9f0f4b9934b8f4f3602caea00e
+      internalID: 1207661500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_40
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 438
+        width: 1816
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f15d81615c9974584093602a9b520c
+      internalID: 1994087935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_41
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 352
+        width: 98
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d265cec139098c4e92a66f398e7f671
+      internalID: 208783129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_42
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 355
+        width: 93
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85018aa2de3b24f44bfcf47c628600bb
+      internalID: -1569903417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 360
+        width: 72
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c735617c3f62a044ab9e25bab404a501
+      internalID: 1101287486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_44
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 352
+        width: 58
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c393a4c8f5629646836de07e0263de8
+      internalID: 837653407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_45
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 352
+        width: 40
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3b648c308ccc645846cef4d16a9830
+      internalID: -1818138836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_46
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 353
+        width: 70
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc1cd68d6b336c4bbc08cc723e84bb0
+      internalID: -1124081336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_47
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 366
+        width: 65
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77a0184f796f2347b94ee9dd0dc3c3c
+      internalID: 138880301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_48
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 437
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd933f25d088fe449bf7b0731bb97287
+      internalID: 10554312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_49
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 369
+        width: 73
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b61fb0906b18964b88503962d00afec
+      internalID: 1135238534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_50
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 360
+        width: 72
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad48816f106dd5f4c8ffdbd663e180d7
+      internalID: -660295415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_51
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 364
+        width: 89
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1d33d0e66a5fd45b72510cd111db00
+      internalID: -2075338751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_52
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 376
+        width: 80
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed9456a6f9cafc4bbb2177dabb8a739
+      internalID: -1365859619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_53
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 368
+        width: 72
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a5bc06a517ea04482370e33e76808a
+      internalID: -751003404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_54
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 359
+        width: 80
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67d83ffc9494f4479b390da4a0891df
+      internalID: -270394571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_55
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 178
+        width: 82
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bfd75816cafc2d4596187f46373fa5a
+      internalID: -1067890301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_56
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 185
+        width: 94
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36971add71cae5449b279ba1e1221ed
+      internalID: -370874514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_57
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 191
+        width: 79
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7fa5e029445f44a8b86ab802969272
+      internalID: -1509561421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_58
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 184
+        width: 78
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bdf9cd2bf74a5240b64e9e8ad027473
+      internalID: 1617191463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_59
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 184
+        width: 99
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3589c7d022936b44bb79624317210d7e
+      internalID: 439819475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_60
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 176
+        width: 80
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358b34c8cc0c2024fb556ea33c7a6f23
+      internalID: -587505469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_61
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 176
+        width: 103
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65539f0fc3754d44a8237ad437b91178
+      internalID: 1313894595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_62
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 200
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a89f90982ab82b499296592409d9d3c
+      internalID: -587950765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_63
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 250
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c345e695e48bbf04f97aa7d878356fed
+      internalID: -1561846266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_64
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 199
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afd2f8eef9d49246a3b89372f13561c
+      internalID: 2023056815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_65
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 216
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d758c1a2c0c9141bc18c92c850ab60
+      internalID: -1482013936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_66
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 184
+        width: 88
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505eece99a52f01459b1f0dae2f4af2b
+      internalID: -1436271465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_67
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 241
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393b76b8801984c4f9edb7e8a8ecb868
+      internalID: -261779594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_68
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 224
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c74a3bd7118b64dbe1f9c19ef89c91
+      internalID: -1779731602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_69
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 224
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3518a780498ad04498beae6f94915002
+      internalID: 1083347519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_70
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 218
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5d768eab55842458bececebb219762
+      internalID: 317722960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_71
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 183
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca96ac6ac16d0b04fa4030ce84f51e3c
+      internalID: 1131900299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_72
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 219
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 701b860fdbdce6d48b41a98a25c0dbcb
+      internalID: 199278796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_73
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 88
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be02aad3a5693a5488febcc00092a675
+      internalID: 1464059109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_74
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 40
+        width: 104
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8550cdfbc0993df41b81e0098284ea46
+      internalID: 2090068729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_75
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 8
+        width: 88
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4aaf4f378feb44eaaca0562ad69479
+      internalID: 1861472615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_76
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 24
+        width: 96
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27750943337816949b9acf1fdb596124
+      internalID: 1880856913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_77
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 32
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03fc2d26b51ac52438115779f5c983f6
+      internalID: -115491997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_78
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 12
+        width: 73
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af910675dae1f3f468260a1bdfbd6d46
+      internalID: 1623734508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_79
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 32
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0309dd5e8dc159d47a2d12d9de089117
+      internalID: 937543694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_80
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 36
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe207efb135cf5a4f8f59532e00b5638
+      internalID: 937802543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_81
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 38
+        width: 65
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0744d1e8db8b8f41942f2d6b494c09c
+      internalID: -2118469895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_82
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 32
+        width: 94
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0cb039bf7ced649b22feb90761bbbf
+      internalID: -846734450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_83
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 80
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d750b4e8332674f833e175a18637fc
+      internalID: -2070302601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_84
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 24
+        width: 89
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702e29449af59e944ae7ab416d357ea4
+      internalID: 2066543680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_85
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 16
+        width: 25
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f7aa631d05bd54b8b8c9670b37a681
+      internalID: 1797371594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_86
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 32
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a99b7bc58023a43b51c01a9162d994
+      internalID: 836998813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_87
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 8
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe094c983eb3e74896fddbd36c654ad
+      internalID: 236286025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8462ee86b6ba7ee4cb5f51c9d6f696bb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_31: -1986815142
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_53: -751003404
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_52: -1365859619
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_42: -1569903417
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_68: -1779731602
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_22: -731895793
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_40: 1994087935
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_72: 199278796
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_82: -846734450
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_49: 1135238534
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_80: 937802543
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_3: -811857458
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_19: -839770787
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_71: 1131900299
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_18: -376647393
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_63: -1561846266
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_59: 439819475
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_87: 236286025
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_44: 837653407
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_36: -435288550
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_12: 39414288
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_8: -146549457
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_85: 1797371594
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_61: 1313894595
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_11: 652760656
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_23: -697793175
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_73: 1464059109
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_83: -2070302601
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_35: -260667080
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_21: -1557445685
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_46: -1124081336
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_67: -261779594
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_0: -621308874
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_78: 1623734508
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_47: 138880301
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_77: -115491997
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_9: -2012335466
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_10: 1312612672
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_16: 1577759009
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_14: -2111568908
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_55: -1067890301
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_65: -1482013936
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_27: 531500739
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_79: 937543694
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_1: 2090432053
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_6: 1125680850
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_74: 2090068729
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_50: -660295415
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_29: 1537822620
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_66: -1436271465
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_5: 618086472
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_43: 1101287486
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_26: -982566124
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_20: -1619124679
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_7: -342978812
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_57: -1509561421
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_41: 208783129
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_60: -587505469
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_37: -599159908
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_84: 2066543680
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_15: -563167195
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_45: -1818138836
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_56: -370874514
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_51: -2075338751
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_62: -587950765
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_25: 1340175210
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_86: 836998813
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_33: -1373196565
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_38: -1094747128
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_48: 10554312
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_76: 1880856913
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_28: -1122660011
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_58: 1617191463
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_81: -2118469895
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_30: -2012092115
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_54: -270394571
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_4: 738686874
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_69: 1083347519
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_17: 579425114
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_24: 1286550737
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_32: -391123013
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_34: -1086361650
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_70: 317722960
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_64: 2023056815
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_39: 1207661500
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_2: 938480905
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_13: 275286332
+      unrealpromo-1920x1080-10061232ecd4828319855eb74bff7b59_75: 1861472615
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

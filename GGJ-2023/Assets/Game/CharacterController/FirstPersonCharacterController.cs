@@ -41,7 +41,7 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 	[SerializeField, Min(0.0f)]
 	private float crouchDrag = 3;
 
-	private bool IsSprinting => !Stamina.isOut && Input.Sprint.Input;
+	public bool IsSprinting => !Stamina.isOut && Input.Sprint.Input;
 	private float speed => (!Input.Crouch.Input ? !IsSprinting ? moveSpeed : sprintSpeed : (crouchSpeed * (Crouch.CrouchPercent * 0.5f + 0.5f))) * StaminaSpeedScalar();
 	private float drag => !Input.Crouch.Input ? !IsSprinting ? moveDrag : sprintDrag : crouchDrag;
 

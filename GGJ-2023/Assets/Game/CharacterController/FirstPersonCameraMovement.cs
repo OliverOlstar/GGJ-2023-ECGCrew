@@ -35,12 +35,12 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 	[SerializeField]
 	private float velocityMaxSpeed = 10.0f;
 
-	[Space, FoldoutGroup("Events"), SerializeField]
-	private UnityEngine.Events.UnityEvent onStep = new UnityEngine.Events.UnityEvent();
-	[FoldoutGroup("Events"), SerializeField]
-	private UnityEngine.Events.UnityEvent onCrouchStep = new UnityEngine.Events.UnityEvent();
-	[FoldoutGroup("Events"), SerializeField]
-	private OliverLoescher.UnityEventsUtil.FloatEvent onLanded = new OliverLoescher.UnityEventsUtil.FloatEvent();
+	[Space, FoldoutGroup("Events")]
+	public UnityEngine.Events.UnityEvent onStep = new UnityEngine.Events.UnityEvent();
+	[FoldoutGroup("Events")]
+	public UnityEngine.Events.UnityEvent onCrouchStep = new UnityEngine.Events.UnityEvent();
+	[FoldoutGroup("Events")]
+	public OliverLoescher.UnityEventsUtil.FloatEvent onLanded = new OliverLoescher.UnityEventsUtil.FloatEvent();
 
 	private float defaultHeight = 0.0f;
 	private float targetHeight = 0.0f;
@@ -71,7 +71,7 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 	private void OnGrounded()
 	{
 		heightVelocity += controller.Character.velocity.y * landingForce;
-		onLanded?.Invoke(landingForce);
+		onLanded?.Invoke(controller.Character.velocity.y);
 	}
 
 	private void DoSpring(float pY, float pTargetY, float pDeltaTime)
@@ -90,11 +90,11 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 		float velocity = Util.Horizontal(controller.Velocity).magnitude / velocityMaxSpeed;
 		float prevBobTime = bobTime;
 		bobTime += pDeltaTime * bobbingFrequencyCurve.Evaluate(velocity);
-		CheckForStep(prevBobTime, bobTime);
 		while (bobTime >= 1.0f)
 		{
 			bobTime -= 1.0f;
 		}
+		CheckForStep(prevBobTime, bobTime);
 		float targetMagnitude = 0.0f;
 		if (grounded.isGrounded)
 		{
@@ -119,8 +119,9 @@ public class FirstPersonCameraMovement : MonoUtil.MonoBehaviour2
 		{
 			return;
 		}
-		if ((pPrev > 0.5f && pCurr <= 0.5f) || (pPrev < 0.5f && pCurr >= 0.5f))
+		if ((pPrev < 0.5f && pCurr >= 0.5f) || (pPrev >= 0.5f && pCurr < 0.5f))
 		{
+			// Debug.Log($"Step {pPrev} to {pCurr}");
 			if (controller.Input.Crouch.Input)
 			{
 				onCrouchStep?.Invoke();
