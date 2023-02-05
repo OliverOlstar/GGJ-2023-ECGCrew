@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour, IFSM
 	private const int PARANOID_LIMIT = 50;
 
 	private EnemyPatrolState characterState = EnemyPatrolState.NONE;
-	EnemyPatrolState IFSM.CharacterState => characterState;
+	public EnemyPatrolState CharacterState => characterState; // IFSM
 
 	[Header("References")]
 	[SerializeField]

@@ -49,7 +49,7 @@ public class FootstepAudio : MonoBehaviour
 	{
 		AudioSource source = audioSource.GetSource();
 		landAudio.Play(source);
-		Debug.Log($"Landed: {pForce}");
+		// Debug.Log($"Landed: {pForce}");
 		source.volume *= source.volume * Mathf.Min(1.0f, -pForce * 0.25f);
 	}
 }
