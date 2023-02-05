@@ -103,6 +103,14 @@ public class EnemyController : MonoBehaviour, IFSM
 		}
 	}
 
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (characterState == EnemyPatrolState.CHASE && collision.gameObject.TryGetComponent(out CharacterController controller))
+		{
+			// Game Over..
+		}
+	}
+
 	private void Update()
 	{
 		if (characterState == EnemyPatrolState.CHASE && player != null)

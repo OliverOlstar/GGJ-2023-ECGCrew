@@ -74,7 +74,7 @@ public class ViewDetector : MonoBehaviour
 		Vector3 destination = detectedObject.transform.position;
 		Vector3 direction = destination - origin;
 
-		Debug.Log($"Direction Y: {direction.y}");
+		//Debug.Log($"Direction Y: {direction.y}");
 		// Check if the Object is Above/Below the Sensor
 		/* ORIGINAL CODE!
 		if (direction.y < 0 || direction.y > height)
@@ -82,6 +82,16 @@ public class ViewDetector : MonoBehaviour
 			return false;
 		}
 		*/
+
+		/* ORDER OF DETECTION
+		 * 1. Check the distance between the Player and this
+		 * 2. Get the players Character Controller
+		 * 3. Check if the Player is within the View Mesh
+		 * 4. Check if the Character Controllers Center.Y is less than or equal to the Objects height that is "blocking" them
+		 * 5. Detect the Player if they are not behind cover
+		 */
+
+		detectedObject.TryGetComponent(out CharacterController player);
 
 		// Check if the Object is within the ViewMesh
 		direction.y = 0;
@@ -98,8 +108,6 @@ public class ViewDetector : MonoBehaviour
 		{
 			return false;
 		}
-
-		detectedObject.TryGetComponent(out CharacterController player);
 
 		// Check if the Player is standing or crouched behind an obstacle using the Character Controllers Center.Y
 		if (player)

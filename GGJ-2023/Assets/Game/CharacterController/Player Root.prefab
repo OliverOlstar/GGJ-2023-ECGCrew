@@ -6224,6 +6224,7 @@ GameObject:
   - component: {fileID: 421671228}
   - component: {fileID: 421671229}
   - component: {fileID: 421671232}
+  - component: {fileID: 2490850611200451742}
   m_Layer: 0
   m_Name: Player Root
   m_TagString: Untagged
@@ -6266,7 +6267,7 @@ MonoBehaviour:
   Character: {fileID: 3827981512213513268}
   Crouch: {fileID: 421671228}
   Stamina: {fileID: 421671232}
-  Emitter: {fileID: 0}
+  Emitter: {fileID: 2490850611200451742}
   moveSpeed: 700
   moveDrag: 5
   sprintSpeed: 1200
@@ -6376,6 +6377,18 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fbf5edb4fb8a685479e61a121352d777, type: 3}
     volume: 0.35
     pitch: {x: 0.95, y: 1.05}
+--- !u!114 &2490850611200451742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827981512196475544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580d10a3291a1c44dbd626f8ceea628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3827981512213513270
 GameObject:
   m_ObjectHideFlags: 0
