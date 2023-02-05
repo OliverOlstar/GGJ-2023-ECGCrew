@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 252848159}
   - component: {fileID: 252848158}
   - component: {fileID: 252848157}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 294583490}
   - component: {fileID: 294583492}
   - component: {fileID: 294583491}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.2509804}
+      maxColor: {r: 0.7, g: 0.7, b: 0.7, a: 0.4509804}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5016,7 +5016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962155454}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Interact Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5044,6 +5044,169 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1627298688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627298690}
+  - component: {fileID: 1864190652}
+  - component: {fileID: 5534754895448136839}
+  - component: {fileID: 1864190655}
+  m_Layer: 6
+  m_Name: BreathAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627298690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627298688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3827981512196475551}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1864190652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627298688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087bc75d412b8b34eb9f5f4d3ce064d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5534754895448136839}
+  audioLoudness: {fileID: 1864190655}
+  magnituteCutoff: 0.0005
+--- !u!82 &5534754895448136839
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627298688}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 190
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1864190655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627298688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab2ce45b94fa554584beee4c65bb4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5534754895448136839}
+  updateStep: 0.03
+  sampleDataLength: 256
+  onLoudnessUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3827981510785693933
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,7 +5253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeb3b567b8608c4abadb5bd92fe4242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMainCamera: 1
   cameraTransform: {fileID: 3827981511679642243}
   cameraYClamp: {x: -40, y: 50}
   cameraXClamp: {x: -180, y: 180}
@@ -5561,6 +5723,7 @@ Transform:
   - {fileID: 3827981512213513269}
   - {fileID: 3827981511222998446}
   - {fileID: 252848156}
+  - {fileID: 1627298690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5604,7 +5767,7 @@ MonoBehaviour:
   camera: {fileID: 3827981510785693922}
   character: {fileID: 3827981512213513268}
   controller: {fileID: 3827981512196475550}
-  crouchCharacterHeight: 0.4
+  crouchCharacterHeight: 0.5
   crouchCameraHeight: {x: 0.4, y: 1}
   crouchCameraRadius: 0.125
   crouchCameraLayerMask:
@@ -5648,8 +5811,8 @@ MonoBehaviour:
   canRunOut: 1
   canRechargeBackIn: 1
   rechargeValueTo: 100
-  rechargeDelay: 1
-  rechargeRate: 35
+  rechargeDelay: 3.5
+  rechargeRate: 30
   UIBars: []
   onValueChanged:
     m_PersistentCalls:
@@ -5673,7 +5836,22 @@ MonoBehaviour:
   lowOnBreath: 0.8
   lowBreathStamina: 50
   outOfBreath: 1.6
-  breathAudio: {fileID: 0}
+  breathSource: {fileID: 1864190652}
+  defaultBreathLoopAudio:
+    clips:
+    - {fileID: 8300000, guid: 8a6281fc639dc9e478447d60dd181103, type: 3}
+    volume: 1
+    pitch: {x: 1, y: 1}
+  lowBreathLoopAudio:
+    clips:
+    - {fileID: 8300000, guid: be56ec3eb2c9368438f1915b2ed7f6eb, type: 3}
+    volume: 0.75
+    pitch: {x: 1, y: 1}
+  outOfBreathAudio:
+    clips:
+    - {fileID: 8300000, guid: fbf5edb4fb8a685479e61a121352d777, type: 3}
+    volume: 0.35
+    pitch: {x: 0.95, y: 1.05}
 --- !u!1 &3827981512213513270
 GameObject:
   m_ObjectHideFlags: 0

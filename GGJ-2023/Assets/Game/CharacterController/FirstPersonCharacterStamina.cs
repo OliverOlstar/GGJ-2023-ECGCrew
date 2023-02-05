@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using OliverLoescher;
 
 public class FirstPersonCharacterStamina : OliverLoescher.CharacterValue
 {
@@ -16,7 +17,13 @@ public class FirstPersonCharacterStamina : OliverLoescher.CharacterValue
 
 	[Header("Breath Audio")]
 	[SerializeField]
-	private AudioSource breathAudio = null;
+	private AudioFader breathSource = null;
+	[SerializeField]
+	private OliverLoescher.AudioUtil.AudioPiece defaultBreathLoopAudio = null;
+	[SerializeField]
+	private OliverLoescher.AudioUtil.AudioPiece lowBreathLoopAudio = null;
+	[SerializeField]
+	private OliverLoescher.AudioUtil.AudioPiece outOfBreathAudio = null;
 
 	private float defaultBreath = 0.0f;
 
@@ -27,6 +34,8 @@ public class FirstPersonCharacterStamina : OliverLoescher.CharacterValue
 		Vector3 localPos = breathParticles.transform.localPosition;
 		breathParticles.transform.SetParent(OliverLoescher.MainCamera.Camera.transform);
 		breathParticles.transform.localPosition = localPos;
+
+		breathSource.PlayInstant(defaultBreathLoopAudio);
 
 		base.Start();
 	}
@@ -67,6 +76,7 @@ public class FirstPersonCharacterStamina : OliverLoescher.CharacterValue
 			return;
 		}
 		breathParticles.emissionRate = lowOnBreath;
+		breathSource.Play(lowBreathLoopAudio);
 	}
 
 	private void OutOfBreath()
@@ -76,6 +86,7 @@ public class FirstPersonCharacterStamina : OliverLoescher.CharacterValue
 			return;
 		}
 		breathParticles.emissionRate = outOfBreath;
+		breathSource.Play(outOfBreathAudio);
 	}
 
 	private void ResetBreath()
@@ -85,5 +96,6 @@ public class FirstPersonCharacterStamina : OliverLoescher.CharacterValue
 			return;
 		}
 		breathParticles.emissionRate = defaultBreath;
+		breathSource.Play(defaultBreathLoopAudio);
 	}
 }
