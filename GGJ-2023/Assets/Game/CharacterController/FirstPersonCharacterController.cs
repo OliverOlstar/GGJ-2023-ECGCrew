@@ -9,7 +9,7 @@ public enum PlayerMovementState
 	HIDING = 0,
 	CROUCHING = 2,
 	WALKING = 5,
-	RUNNING = 10,
+	SPRINTING = 10,
 }
 
 public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
@@ -19,6 +19,7 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 	public CharacterController Character = null;
 	public FirstPersonCrouchBehaviour Crouch = null;
 	public FirstPersonCharacterStamina Stamina = null;
+	public SoundEmitter Emitter = null;
 
 	[Header("Stats")]
 	[SerializeField, Min(0.0f)]
@@ -41,7 +42,6 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 	private float crouchDrag = 3;
 
 	private bool IsSprinting => !Stamina.isOut && Input.Sprint.Input;
-	private bool sprintInput = false;
 	private float speed => (!Input.Crouch.Input ? !IsSprinting ? moveSpeed : sprintSpeed : (crouchSpeed * (Crouch.CrouchPercent * 0.5f + 0.5f))) * StaminaSpeedScalar();
 	private float drag => !Input.Crouch.Input ? !IsSprinting ? moveDrag : sprintDrag : crouchDrag;
 
@@ -53,6 +53,7 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 		}
 		return 1.0f;
 	}
+	private PlayerMovementState currentMovementState = PlayerMovementState.NONE;
 
 	private Vector3 velocity = Vector3.zero;
 	public Vector3 Velocity => velocity;
@@ -70,24 +71,25 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 
     protected override void Tick(float pDeltaTime)
     {
-		if (Input.Crouch.Input)
+
+		float minSoundThreshold = 0.1f;
+		if (velocity.magnitude < minSoundThreshold)
 		{
-			if (Stamina.Get() > 0.25f)
-			{
-				sprintInput = true;
-			}
+			currentMovementState = PlayerMovementState.NONE;
 		}
 		else
 		{
-			sprintInput = false;
+			currentMovementState = !Input.Crouch.Input ? !IsSprinting ? PlayerMovementState.WALKING : PlayerMovementState.SPRINTING : PlayerMovementState.CROUCHING;
 		}
+		int volume = (int)currentMovementState;
 
-        if (AddMovement(pDeltaTime) && IsSprinting)
+		if (AddMovement(pDeltaTime) && IsSprinting)
 		{
 			Stamina.Modify(pDeltaTime * -staminaPerSecond);
 		}
 		velocity -= velocity * drag * pDeltaTime;
 		Character.SimpleMove(velocity * pDeltaTime);
+		if (volume > 0) Emitter?.Emit((int)currentMovementState);
     }
 
 	private bool AddMovement(float pDeltaTime)

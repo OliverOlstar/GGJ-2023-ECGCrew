@@ -21,6 +21,13 @@ public interface IFSM
 
 public class EnemyController : MonoBehaviour, IFSM
 {
+	private const float MIN_MOVE_SPEED = 1f;
+	private const float MAX_MOVE_SPEED = 10f;
+	private const int PARANOID_LIMIT = 50;
+
+	private EnemyPatrolState characterState = EnemyPatrolState.NONE;
+	EnemyPatrolState IFSM.CharacterState => characterState;
+
 	[Header("References")]
 	[SerializeField]
 	private Waypoint[] originalWaypoints = null;
@@ -39,6 +46,10 @@ public class EnemyController : MonoBehaviour, IFSM
 	[SerializeField]
 	private float walkSpeed = 5f;
 	[SerializeField]
+	private float investigateBaseSpeed = 2f;
+	[SerializeField]
+	private float currentInvestigateSpeed = 1f;
+	[SerializeField]
 	private float chaseSpeed = 10f;
 	[SerializeField]
 	private float chaseInterval = 0.33f;
@@ -47,22 +58,17 @@ public class EnemyController : MonoBehaviour, IFSM
 	[SerializeField]
 	private float playerChaseDistance = 10f;
 
-
 	// TODO: Implement "Investigating" where the Enemy walks to the "Noise" spot or "Sprints" to the noise spot, depending on how "Aggresive" the enemy is
-	private float paranoiaAmount = 0f;
-
+	private float currentParanoia = 0f;
 	private CharacterController player = null;
-
-	private EnemyPatrolState characterState = EnemyPatrolState.NONE;
-	EnemyPatrolState IFSM.CharacterState => characterState;
-
 	private int currentWaypointIndex = 0;
 	private Waypoint currentWaypoint = null;
 
 	private void OnEnable()
 	{
 		viewDetector.OnPlayerDetected += OnPlayerDetectedHandler;
-		soundDetector.OnPlayerDetected += OnPlayerDetectedHandler;
+		viewDetector.OnBecameParanoid += OnBecameParanoidHandler;
+		soundDetector.OnSoundDetected += OnSoundDetectedHandler;
 		Reset();
 		SetupWayPoints();
 		if (player != null)
@@ -78,7 +84,7 @@ public class EnemyController : MonoBehaviour, IFSM
 	private void OnDisable()
 	{
 		viewDetector.OnPlayerDetected -= OnPlayerDetectedHandler;
-		soundDetector.OnPlayerDetected -= OnPlayerDetectedHandler;
+		soundDetector.OnSoundDetected -= OnSoundDetectedHandler;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -136,6 +142,10 @@ public class EnemyController : MonoBehaviour, IFSM
 				Log("Patrolling...");
 				Patrol();
 				break;
+			case EnemyPatrolState.INVESTIGATE:
+				Log("Investigating...");
+				Investigate();
+				break;
 			case EnemyPatrolState.SEARCH:
 				Log("Searching...");
 				Search();
@@ -154,26 +164,38 @@ public class EnemyController : MonoBehaviour, IFSM
 		Vector3 playerPosition = player.transform.position;
 		if (Vector3.Distance(transform.position, playerPosition) > playerChaseDistance)
 		{
+			// When losing the player, "Search" for them by creating some new Waypoints around the Enemy so they patrol this new area instead
 			player = null;
 			IFSM stateMachine = this;
-			stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
+			stateMachine.OnStateTransition(EnemyPatrolState.SEARCH);
 			return;
 		}
 		agent.isStopped = false;
-		agent.speed = chaseSpeed;
+		SetAgentSpeed(chaseSpeed);
 		agent.SetDestination(player.transform.position);
 		chaseTimer = chaseInterval;
 	}
 
 	private void Patrol()
 	{
+		currentParanoia = 0; 
 		currentWaypointIndex++;
 		currentWaypointIndex = MathUtil.LoopedValue(currentWaypointIndex, 0, originalWaypoints.Length - 1);
 		currentWaypoint = originalWaypoints[currentWaypointIndex];
 		target = currentWaypoint.transform;
 		agent.isStopped = false;
-		agent.speed = walkSpeed;
+		SetAgentSpeed(walkSpeed);
 		StartCoroutine(MoveNextWaypoint());
+	}
+
+	private void Investigate()
+	{
+		// TODO: Make the Vision Cone "bigger" if investigating
+		if (characterState == EnemyPatrolState.INVESTIGATE && player == null)
+		{
+			ModifyAgentSpeed(currentInvestigateSpeed);
+			agent.SetDestination(target.position);
+		}
 	}
 
 	private void Search()
@@ -196,22 +218,44 @@ public class EnemyController : MonoBehaviour, IFSM
 		stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
 	}
 
+	private void OnSoundDetectedHandler(float volume, GameObject detectedObject)
+	{
+		target = detectedObject.transform;
+		IFSM stateMachine = this;
+		currentInvestigateSpeed = investigateBaseSpeed * volume;
+		stateMachine.OnStateTransition(EnemyPatrolState.INVESTIGATE);
+	}
+
+	private void OnBecameParanoidHandler(CharacterController playerController)
+	{
+		int paranoia = 10;
+		currentParanoia += paranoia;
+
+		if (currentParanoia > PARANOID_LIMIT)
+		{
+			currentParanoia = 0;
+			IFSM stateMachine = this;
+			player = playerController;
+			target = player.transform;
+			stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
+		}
+	}
 
 	private IEnumerator MoveNextWaypoint()
 	{
-		float minWaitTime = 1.0f;
-		float maxWaitTime = 2.0f;
+		float minWaitTime = 2.5f;
+		float maxWaitTime = 4.0f;
 		float randomWaitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
 		yield return new WaitForSeconds(randomWaitTime);
 
 		agent.isStopped = true;
 		yield return null;
-		//RotateTowardsTarget();
 		agent.isStopped = false;
 
 		agent.SetDestination(target.position);
 	}
 
+	/*
 	private void RotateTowardsTarget()
 	{
 		Vector3 turnTowardNavSteeringTarget = agent.steeringTarget;
@@ -221,6 +265,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		float rotateTime = 5f;
 		model.transform.rotation = Quaternion.Slerp(model.transform.rotation, lookRotation, Time.deltaTime * rotateTime);
 	}
+	*/
 
 	private void OnWayPointReached()
 	{
@@ -229,6 +274,17 @@ public class EnemyController : MonoBehaviour, IFSM
 			IFSM fsm = this;
 			fsm.OnStateTransition(EnemyPatrolState.PATROL);
 		}
+	}
+
+	private void ModifyAgentSpeed(float modifier)
+	{
+		agent.speed = MIN_MOVE_SPEED;
+		agent.speed = Mathf.Clamp(agent.speed * modifier, MIN_MOVE_SPEED, MAX_MOVE_SPEED);
+	}
+
+	private void SetAgentSpeed(float speed)
+	{
+		agent.speed = speed;
 	}
 
 	private void Reset()
@@ -256,6 +312,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		{
 			case EnemyPatrolState.PATROL:
 				break;
+			case EnemyPatrolState.INVESTIGATE:
 			case EnemyPatrolState.SEARCH:
 				enemyGizmoColor = Color.yellow;
 				break;
