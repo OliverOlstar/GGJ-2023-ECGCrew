@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour, IFSM
 	[SerializeField]
 	private Waypoint[] originalWaypoints = null;
 	[SerializeField]
+	private ViewDetector viewDetector = null;
+	[SerializeField]
 	private SoundDetector soundDetector = null;
 	[SerializeField]
 	private NavMeshAgent agent = null;
@@ -35,19 +37,17 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	[Header("Settings")]
 	[SerializeField]
-	private float viewRadius = 15;
-	[SerializeField]
-	private float viewAngle = 90f;
-	[SerializeField]
-	private LayerMask playerLayer;
-	[SerializeField]
-	private LayerMask obstacleLayer;
-	[SerializeField]
 	private float walkSpeed = 5f;
 	[SerializeField]
 	private float chaseSpeed = 10f;
+	[SerializeField]
+	private float chaseInterval = 0.33f;
+	[SerializeField]
+	private float chaseTimer = 0f;
+	[SerializeField]
+	private float playerChaseDistance = 10f;
 
-	private FirstPersonCharacterController player = null;
+	private CharacterController player = null;
 
 	private EnemyPatrolState characterState = EnemyPatrolState.NONE;
 	EnemyPatrolState IFSM.CharacterState => characterState;
@@ -57,7 +57,8 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	private void OnEnable()
 	{
-		SoundDetector.OnPlayerDetected += OnPlayerDetectedHandler;
+		viewDetector.OnPlayerDetected += OnPlayerDetectedHandler;
+		soundDetector.OnPlayerDetected += OnPlayerDetectedHandler;
 		Reset();
 		SetupWayPoints();
 		if (player != null)
@@ -70,15 +71,10 @@ public class EnemyController : MonoBehaviour, IFSM
 		}
 	}
 
-	private void OnDisable() => SoundDetector.OnPlayerDetected -= OnPlayerDetectedHandler;
-
-	private void OnCollisionEnter(Collision collision)
+	private void OnDisable()
 	{
-		collision.gameObject.TryGetComponent(out FirstPersonCharacterController firstPersonCharacter);
-		if (firstPersonCharacter)
-		{
-			OnPlayerDetectedHandler(firstPersonCharacter);
-		}
+		viewDetector.OnPlayerDetected -= OnPlayerDetectedHandler;
+		soundDetector.OnPlayerDetected -= OnPlayerDetectedHandler;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -99,25 +95,12 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	private void Update()
 	{
-		if (target != null)
+		if (characterState == EnemyPatrolState.CHASE && player != null)
 		{
-			transform.LookAt(target, Vector3.back);
-		}
-	}
-
-	private void FixedUpdate()
-	{
-		RaycastHit hit;
-		float raycastDistance = 20f;
-		float sphereRadius = 5f;
-		// Does the ray intersect any objects excluding the player layer
-		Debug.DrawRay(transform.position, Vector3.forward * raycastDistance, Color.red);
-		if (Physics.SphereCast(transform.position, sphereRadius, -Vector3.forward, out hit, raycastDistance))
-		{
-			hit.transform.gameObject.TryGetComponent(out FirstPersonCharacterController fpsController);
-			if (fpsController)
+			chaseTimer -= Time.deltaTime;
+			if (chaseTimer <= 0)
 			{
-				Log($"Hit {fpsController}");
+				Chase();
 			}
 		}
 	}
@@ -138,22 +121,53 @@ public class EnemyController : MonoBehaviour, IFSM
 		}
 	}
 
-	private void OnPlayerDetectedHandler(FirstPersonCharacterController playerController)
+	#region States
+	void IFSM.OnStateTransition(EnemyPatrolState state)
 	{
-		player = playerController;
-		IFSM stateMachine = this;
-		stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
+		characterState = state;
+
+		switch (characterState)
+		{
+			case EnemyPatrolState.PATROL:
+				Log("Patrolling...");
+				Patrol();
+				break;
+			case EnemyPatrolState.SEARCH:
+				Log("Searching...");
+				break;
+			case EnemyPatrolState.CHASE:
+				Log("Chasing player!");
+				Chase();
+				break;
+			default:
+				break;
+		}
 	}
 
-	private void Move(float speed = 0.5f)
+	private void Chase()
 	{
+		Vector3 playerPosition = player.transform.position;
+		if (Vector3.Distance(transform.position, playerPosition) > playerChaseDistance)
+		{
+			IFSM stateMachine = this;
+			stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
+			return;
+		}
 		agent.isStopped = false;
-		agent.speed = speed;
+		agent.speed = chaseSpeed;
+		agent.SetDestination(player.transform.position);
+		chaseTimer = chaseInterval;
 	}
 
 	private void Patrol()
 	{
+		currentWaypointIndex++;
+		currentWaypointIndex = MathUtil.LoopedValue(currentWaypointIndex, 0, originalWaypoints.Length - 1);
+		currentWaypoint = originalWaypoints[currentWaypointIndex];
 		target = currentWaypoint.transform;
+		agent.isStopped = false;
+		agent.speed = walkSpeed;
+		StartCoroutine(MoveNextWaypoint());
 	}
 
 	private void Stop()
@@ -162,6 +176,15 @@ public class EnemyController : MonoBehaviour, IFSM
 		agent.speed = 0f;
 		target = null;
 	}
+	#endregion
+
+	private void OnPlayerDetectedHandler(CharacterController playerController)
+	{
+		player = playerController;
+		IFSM stateMachine = this;
+		stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
+	}
+
 
 	private IEnumerator MoveNextWaypoint()
 	{
@@ -172,7 +195,7 @@ public class EnemyController : MonoBehaviour, IFSM
 
 		agent.isStopped = true;
 		yield return null;
-		RotateTowardsTarget();
+		//RotateTowardsTarget();
 		agent.isStopped = false;
 
 		agent.SetDestination(target.position);
@@ -192,31 +215,8 @@ public class EnemyController : MonoBehaviour, IFSM
 	{
 		if (characterState == EnemyPatrolState.PATROL && player == null)
 		{
-			currentWaypointIndex++;
-			currentWaypointIndex = MathUtil.LoopedValue(currentWaypointIndex, 0, originalWaypoints.Length - 1);
-			currentWaypoint = originalWaypoints[currentWaypointIndex];
-			target = currentWaypoint.transform;
-			StartCoroutine(MoveNextWaypoint());
-		}
-	}
-
-	void IFSM.OnStateTransition(EnemyPatrolState state)
-	{
-		characterState = state;
-
-		switch (characterState)
-		{
-			case EnemyPatrolState.PATROL:
-				Log("Patrolling...");
-				break;
-			case EnemyPatrolState.SEARCH:
-				Log("Searching...");
-				break;
-			case EnemyPatrolState.CHASE:
-				Log("Chasing player!");
-				break;
-			default:
-				break;
+			IFSM fsm = this;
+			fsm.OnStateTransition(EnemyPatrolState.PATROL);
 		}
 	}
 
@@ -225,7 +225,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		currentWaypointIndex = 0;
 		currentWaypoint = null;
 		target = originalWaypoints[currentWaypointIndex].transform;
-		agent.updateRotation = true;
+		//agent.updateRotation = true;
 		agent.isStopped = true;
 		IFSM fsm = this;
 		fsm.OnStateTransition(EnemyPatrolState.PATROL);
@@ -259,12 +259,5 @@ public class EnemyController : MonoBehaviour, IFSM
 		float sphereRadius = 1f;
 		Gizmos.DrawWireSphere(transform.position, sphereRadius);
 		#endregion
-
-		/*
-		#region Raycast Gizmos
-		Gizmos.color = Color.red;
-		Gizmos.DrawRay(transform.position, Vector3.forward);
-		#endregion
-		*/
 	}
 }

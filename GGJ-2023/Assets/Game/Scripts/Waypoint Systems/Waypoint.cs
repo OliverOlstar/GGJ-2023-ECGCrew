@@ -22,7 +22,8 @@ public class Waypoint : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		// Draw a yellow sphere at the transform's position
-		Gizmos.color = Color.green;
-		Gizmos.DrawSphere(transform.position, 1);
+		Gizmos.color = Color.grey;
+		float radius = 0.5f;
+		Gizmos.DrawSphere(transform.position, radius);
 	}
 }

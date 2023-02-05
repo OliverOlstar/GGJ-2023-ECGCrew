@@ -1,9 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class ViewDetector : MonoBehaviour
 {
+	public Action<CharacterController> OnPlayerDetected;
+
+	private List<GameObject> detectedObjects = new List<GameObject>();
+	public List<GameObject> DetectedObjects => detectedObjects;
+
 	[Header("Settings")]
 	[SerializeField]
 	private float distance = 10f;
@@ -13,16 +20,105 @@ public class ViewDetector : MonoBehaviour
 	private float height = 1.0f;
 	[SerializeField]
 	private Color meshDetectionColor = Color.red;
+	[SerializeField]
+	private int detectFrequency = 30;
+	[SerializeField]
+	private LayerMask detectionMask;
+	[SerializeField]
+	private LayerMask occlusionMask;
+
+
+	private Collider[] collidersBuffer = new Collider[50];
+	private int hitCount = 0;
+	private float detectInterval = 0f;
+	private float detectTimer = 0f;
 
 	private Mesh detectionMesh = null;
+
+	private void OnEnable()
+	{
+		UpdateFrequency();
+	}
+
+	private void Update()
+	{
+		detectTimer -= Time.deltaTime;
+		if (detectTimer <= 0f)
+		{
+			detectTimer += detectInterval;
+			Detect();
+		}
+	}
+
+	private void Detect()
+	{
+		hitCount = Physics.OverlapSphereNonAlloc(transform.position, distance, collidersBuffer, detectionMask, QueryTriggerInteraction.Collide);
+
+		detectedObjects.Clear();
+		for (int i = 0; i < hitCount; i++)
+		{
+			GameObject detecteObject = collidersBuffer[i].gameObject;
+			if (IsDetected(detecteObject))
+			{
+				detectedObjects.Add(detecteObject);
+			}
+		}
+	}
+
+	public bool IsDetected(GameObject detectedObject)
+	{
+		Vector3 origin = transform.position;
+		Vector3 destination = detectedObject.transform.position;
+		Vector3 direction = destination - origin;
+		// Offset the players "Physical" space by how high we want to be able to detect them
+		//float playerHeightOffset = 1.0f;
+
+		// Check if the Object is Above/Below the Sensor
+		if (direction.y < 0 || direction.y > height)
+		{
+			return false;
+		}
+
+		// Check if the Object is within the ViewMesh
+		direction.y = 0;
+		float deltaAngle = Vector3.Angle(direction, transform.forward);
+		if (deltaAngle > angle)
+		{
+			return false;
+		}
+
+		// Check if this Object is being blocked
+		origin.y += height / 2;
+		destination.y = origin.y;
+		if (Physics.Linecast(origin, destination, occlusionMask))
+		{
+			return false;
+		}
+
+		detectedObject.TryGetComponent(out CharacterController player);
+		if (player)
+		{
+			OnPlayerDetected?.Invoke(player);
+		}
+
+		return true;
+	}
+
+	private void UpdateFrequency()
+	{
+		detectInterval = 1.0f / detectFrequency;
+	}
 
 	private Mesh CreateViewMesh()
 	{
 		Mesh viewMesh = new Mesh();
 
-		int numTriangles = 8;
-		int sides = 3;	// Using the amount of sides based on Triangles to calculate the amount of vert's we'll need
-		int numVerticies = numTriangles * sides;
+		int segments = 10;
+		int squareSides = 4;
+		int leftRightSides = 2;
+		int numTriangles = (segments * squareSides) + leftRightSides + leftRightSides;
+		int triangleSides = 3;	// Using the amount of sides based on Triangles to calculate the amount of vert's we'll need
+		int numVerticies = numTriangles * triangleSides;
 
 		Vector3[] verticies = new Vector3[numVerticies];
 		int[] triangles = new int[numVerticies];
@@ -55,24 +151,39 @@ public class ViewDetector : MonoBehaviour
 		verticies[currentVert++] = bottomRight;
 		verticies[currentVert++] = bottomCenter;
 
-		// Far
-		verticies[currentVert++] = bottomLeft;
-		verticies[currentVert++] = bottomRight;
-		verticies[currentVert++] = topRight;
+		// Angles
+		float currentAngle = -angle;
+		float deltaAngle = (angle * leftRightSides) / segments;
 
-		verticies[currentVert++] = topRight;
-		verticies[currentVert++] = topLeft;
-		verticies[currentVert++] = bottomLeft;
+		for (int i = 0; i < segments; i++)
+		{
+			bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * distance;
+			bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * distance;
 
-		// Top
-		verticies[currentVert++] = topCenter;
-		verticies[currentVert++] = topLeft;
-		verticies[currentVert++] = topRight;
+			topLeft = bottomLeft + (Vector3.up * height);
+			topRight = bottomRight + (Vector3.up * height);
 
-		// Bottom
-		verticies[currentVert++] = bottomCenter;
-		verticies[currentVert++] = bottomRight;
-		verticies[currentVert++] = bottomLeft;
+			// Far
+			verticies[currentVert++] = bottomLeft;
+			verticies[currentVert++] = bottomRight;
+			verticies[currentVert++] = topRight;
+
+			verticies[currentVert++] = topRight;
+			verticies[currentVert++] = topLeft;
+			verticies[currentVert++] = bottomLeft;
+
+			// Top
+			verticies[currentVert++] = topCenter;
+			verticies[currentVert++] = topLeft;
+			verticies[currentVert++] = topRight;
+
+			// Bottom
+			verticies[currentVert++] = bottomCenter;
+			verticies[currentVert++] = bottomRight;
+			verticies[currentVert++] = bottomLeft;
+
+			currentAngle += deltaAngle;
+		}
 
 		for (int i = 0; i < numVerticies; i++)
 		{
@@ -86,9 +197,33 @@ public class ViewDetector : MonoBehaviour
 		return viewMesh;
 	}
 
+	// Used for filtering all detected Objects
+	public int FilterDetections(GameObject[] gameObjectBuffer, string layerName)
+	{
+		int layer = LayerMask.NameToLayer(layerName);
+		int count = 0;
+
+		foreach (GameObject filteredObject in detectedObjects)
+		{
+			if (filteredObject.layer == layer)
+			{
+				gameObjectBuffer[count++] = filteredObject;
+			}
+
+			if (gameObjectBuffer.Length == count)
+			{
+				// Buffer is full; break
+				break;
+			}
+		}
+
+		return count;
+	}
+
 	private void OnValidate()
 	{
 		detectionMesh = CreateViewMesh();
+		UpdateFrequency();
 	}
 
 	private void OnDrawGizmos()
@@ -97,6 +232,19 @@ public class ViewDetector : MonoBehaviour
 		{
 			Gizmos.color = meshDetectionColor;
 			Gizmos.DrawMesh(detectionMesh, transform.position, transform.rotation);
+		}
+
+		Gizmos.DrawWireSphere(transform.position, distance);
+		float detectedSphereRadius = 1f;
+		for (int i = 0; i < hitCount; i++)
+		{
+			Gizmos.DrawSphere(collidersBuffer[i].transform.position, detectedSphereRadius);
+		}
+
+		Gizmos.color = Color.green;
+		foreach (GameObject detectedObject in detectedObjects)
+		{
+			Gizmos.DrawSphere(detectedObject.transform.position, detectedSphereRadius);
 		}
 	}
 }

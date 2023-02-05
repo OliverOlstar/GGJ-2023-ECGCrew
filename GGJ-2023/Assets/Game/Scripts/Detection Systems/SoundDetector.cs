@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SoundDetector : MonoBehaviour
 {
-	public static Action<FirstPersonCharacterController> OnPlayerDetected;
+	public Action<CharacterController> OnPlayerDetected;
 
 	[SerializeField]
 	private float soundDetectionDistance = 5f;
@@ -13,7 +13,7 @@ public class SoundDetector : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.TryGetComponent(out FirstPersonCharacterController playerController))
+		if (other.TryGetComponent(out CharacterController playerController))
 		{
 			OnPlayerDetected?.Invoke(playerController);
 		}
@@ -21,7 +21,7 @@ public class SoundDetector : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.TryGetComponent(out FirstPersonCharacterController playerController))
+		if (other.TryGetComponent(out CharacterController playerController))
 		{
 			OnPlayerDetected?.Invoke(playerController);
 		}
