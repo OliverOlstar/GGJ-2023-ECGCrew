@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using OliverLoescher;
 
+public enum PlayerMovementState
+{
+	NONE = -1,
+	HIDING = 0,
+	WALKING = 5,
+	RUNNING = 10,
+}
+
 public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 {
 	[Header("Components")]
