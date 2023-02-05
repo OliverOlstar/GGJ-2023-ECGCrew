@@ -47,6 +47,10 @@ public class EnemyController : MonoBehaviour, IFSM
 	[SerializeField]
 	private float playerChaseDistance = 10f;
 
+
+	// TODO: Implement "Investigating" where the Enemy walks to the "Noise" spot or "Sprints" to the noise spot, depending on how "Aggresive" the enemy is
+	private float paranoiaAmount = 0f;
+
 	private CharacterController player = null;
 
 	private EnemyPatrolState characterState = EnemyPatrolState.NONE;
@@ -134,6 +138,7 @@ public class EnemyController : MonoBehaviour, IFSM
 				break;
 			case EnemyPatrolState.SEARCH:
 				Log("Searching...");
+				Search();
 				break;
 			case EnemyPatrolState.CHASE:
 				Log("Chasing player!");
@@ -169,6 +174,11 @@ public class EnemyController : MonoBehaviour, IFSM
 		agent.isStopped = false;
 		agent.speed = walkSpeed;
 		StartCoroutine(MoveNextWaypoint());
+	}
+
+	private void Search()
+	{
+
 	}
 
 	private void Stop()

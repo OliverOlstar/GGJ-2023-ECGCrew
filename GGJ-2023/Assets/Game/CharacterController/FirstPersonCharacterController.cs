@@ -7,6 +7,7 @@ public enum PlayerMovementState
 {
 	NONE = -1,
 	HIDING = 0,
+	CROUCHING = 2,
 	WALKING = 5,
 	RUNNING = 10,
 }
