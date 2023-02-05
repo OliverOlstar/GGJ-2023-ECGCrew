@@ -5857,7 +5857,7 @@ MonoBehaviour:
   tiltMagnitude: {x: 1, y: 1}
   tiltMax: {x: 8, y: 6}
   tiltDampening: {x: 1, y: 1}
-  character: {fileID: 0}
+  rigid: {fileID: 0}
   targetMagnitude: 0.01
   maxMagnitude: 1
   moveDampening: 1
@@ -6880,12 +6880,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b4f2a49d59c5446960e52f9aed68b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 100
+  value: 150
   doRecharge: 1
   canRunOut: 1
   canRechargeBackIn: 1
-  rechargeValueTo: 100
-  rechargeDelay: 3.5
+  rechargeValueTo: 150
+  rechargeDelay: 2
   rechargeRate: 30
   UIBars: []
   onValueChanged:
