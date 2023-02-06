@@ -175,7 +175,8 @@ public class EnemyController : MonoBehaviour, IFSM
 			// When losing the player, "Search" for them by creating some new Waypoints around the Enemy so they patrol this new area instead
 			player = null;
 			IFSM stateMachine = this;
-			stateMachine.OnStateTransition(EnemyPatrolState.SEARCH);
+			// TODO: SWITCH TO SEARCH AND FIX SEARCHING!
+			stateMachine.OnStateTransition(EnemyPatrolState.INVESTIGATE);
 			return;
 		}
 		agent.isStopped = false;
@@ -199,10 +200,18 @@ public class EnemyController : MonoBehaviour, IFSM
 	private void Investigate()
 	{
 		// TODO: Make the Vision Cone "bigger" if investigating
-		if (characterState == EnemyPatrolState.INVESTIGATE && player == null)
+		if (player == null)
 		{
-			ModifyAgentSpeed(currentInvestigateSpeed);
-			agent.SetDestination(target.position);
+			if (characterState == EnemyPatrolState.INVESTIGATE)
+			{
+				ModifyAgentSpeed(currentInvestigateSpeed);
+				agent.SetDestination(target.position);
+			}
+		}
+		else
+		{
+			IFSM stateMachine = this;
+			stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
 		}
 	}
 

@@ -47,4 +47,10 @@ public class SoundDetector : MonoBehaviour
 	{
 		Debug.Log($"|{this}| {log}");
 	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.blue;
+		Gizmos.DrawWireSphere(transform.position, soundDetectionDistance);
+	}
 }
