@@ -21,7 +21,8 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 	[SerializeField]
 	private Motion doorB = null;
 
-	public bool canOpen = true;
+	[SerializeField]
+	private int requiredItemID = -1;
 
 	public bool IsSelectable => false;
 
@@ -30,7 +31,7 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 
 	public void Select()
 	{
-		if (!canOpen)
+		if (requiredItemID >= 0 && !Item.Inventory.Contains(requiredItemID))
 		{
 			failAudio.Play(audioSource);
 			return;

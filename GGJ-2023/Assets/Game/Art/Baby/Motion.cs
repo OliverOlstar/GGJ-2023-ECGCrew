@@ -50,7 +50,8 @@ public class Motion : MonoBehaviour
 	{
 		Vector3 pos = Vector3.zero;
 		time += Time.deltaTime * (reverse ? -1 : 1);
-		time = Mathf.Clamp(time, timeClamp.x, timeClamp.y);
+		if (useClamp)
+			time = Mathf.Clamp(time, timeClamp.x, timeClamp.y);
 		if (useX)
 		{
 			pos.x = xMotion.Evaluate(time * xFrequency) * xScalar;
