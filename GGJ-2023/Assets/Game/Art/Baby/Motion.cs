@@ -33,6 +33,13 @@ public class Motion : MonoBehaviour
 	private float zFrequency = 5.0f;
 
 	private Vector3 initialPosition = Vector3.zero;
+	private float time = 0.0f;
+
+	[Space, SerializeField]
+	private bool useClamp = false;
+	[SerializeField]
+	private Vector2 timeClamp = Vector2.up;
+	public bool reverse = false;
 
 	void OnEnable()
 	{
@@ -42,18 +49,31 @@ public class Motion : MonoBehaviour
 	void Update()
 	{
 		Vector3 pos = Vector3.zero;
+		time += Time.deltaTime * (reverse ? -1 : 1);
+		time = Mathf.Clamp(time, timeClamp.x, timeClamp.y);
 		if (useX)
 		{
-			pos.x = xMotion.Evaluate(Time.time * xFrequency) * xScalar;
+			pos.x = xMotion.Evaluate(time * xFrequency) * xScalar;
 		}
 		if (useY)
 		{
-			pos.y = yMotion.Evaluate(Time.time * yFrequency) * yScalar;
+			pos.y = yMotion.Evaluate(time * yFrequency) * yScalar;
 		}
 		if (useZ)
 		{
-			pos.z = zMotion.Evaluate(Time.time * zFrequency) * zScalar;
+			pos.z = zMotion.Evaluate(time * zFrequency) * zScalar;
 		}
 		transform.localPosition = pos + initialPosition;
+	}
+
+	public void Play(bool pReverse)
+	{
+		enabled = true;
+		reverse = pReverse;
+	}
+
+	public void Stop()
+	{
+		enabled = false;
 	}
 }

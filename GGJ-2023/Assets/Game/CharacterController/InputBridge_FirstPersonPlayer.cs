@@ -18,8 +18,8 @@ public class InputBridge_FirstPersonPlayer : InputBridge_Base
 	private InputModule_Toggle crouchInput = new InputModule_Toggle();
 	[SerializeField]
 	private InputModule_Toggle sprintInput = new InputModule_Toggle();
-	[SerializeField]
-	private InputModule_Trigger jumpInput = new InputModule_Trigger();
+	// [SerializeField]
+	// private InputModule_Trigger jumpInput = new InputModule_Trigger();
 	[SerializeField]
 	private InputModule_Trigger interactInput = new InputModule_Trigger();
 
@@ -28,7 +28,7 @@ public class InputBridge_FirstPersonPlayer : InputBridge_Base
 	public InputModule_Vector2 Move => moveInput;
 	public InputModule_Toggle Crouch => crouchInput;
 	public InputModule_Toggle Sprint => sprintInput;
-	public InputModule_Trigger Jump => jumpInput;
+	// public InputModule_Trigger Jump => jumpInput;
 	public InputModule_Trigger Interact => interactInput;
 
 	public override UnityEngine.InputSystem.InputActionMap Actions => InputSystem.Instance.FirstPersonController.Get();
@@ -39,7 +39,7 @@ public class InputBridge_FirstPersonPlayer : InputBridge_Base
 		yield return moveInput;
 		yield return crouchInput;
 		yield return sprintInput;
-		yield return jumpInput;
+		// yield return jumpInput;
 		yield return interactInput;
 	}
 
@@ -52,7 +52,7 @@ public class InputBridge_FirstPersonPlayer : InputBridge_Base
 		moveInput.Initalize(InputSystem.Instance.FirstPersonController.Move, IsValid);
 		crouchInput.Initalize(InputSystem.Instance.FirstPersonController.Crouch, IsValid);
 		sprintInput.Initalize(InputSystem.Instance.FirstPersonController.Sprint, IsValid);
-		jumpInput.Initalize(InputSystem.Instance.FirstPersonController.Jump, IsValid);
+		// jumpInput.Initalize(InputSystem.Instance.FirstPersonController.Jump, IsValid);
 		interactInput.Initalize(InputSystem.Instance.FirstPersonController.Interact, IsValid);
 
 		base.Awake();

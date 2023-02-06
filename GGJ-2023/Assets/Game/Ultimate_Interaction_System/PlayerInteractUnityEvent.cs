@@ -10,7 +10,8 @@ public class PlayerInteractUnityEvent : MonoBehaviour, IPlayerInteractable
 	public UnityEngine.Events.UnityEvent onSelect = new UnityEngine.Events.UnityEvent();
 	public UnityEngine.Events.UnityEvent onUnSelect = new UnityEngine.Events.UnityEvent();
 
-	public bool IsSelectable => true;
+	public bool isSelectable = true;
+	public bool IsSelectable => isSelectable;
 
 	void IPlayerInteractable.Hover() => onHover?.Invoke();
 	void IPlayerInteractable.UnHover() => onUnHover?.Invoke();

@@ -177,6 +177,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   zScalar: 5
   zFrequency: 5
+  useClamp: 0
+  timeClamp: {x: 0, y: 1}
+  reverse: 0
 --- !u!1 &252848155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6591,11 +6594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b4f2a49d59c5446960e52f9aed68b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 150
+  value: 120
   doRecharge: 1
   canRunOut: 1
   canRechargeBackIn: 1
-  rechargeValueTo: 150
+  rechargeValueTo: 120
   rechargeDelay: 2
   rechargeRate: 30
   UIBars: []
