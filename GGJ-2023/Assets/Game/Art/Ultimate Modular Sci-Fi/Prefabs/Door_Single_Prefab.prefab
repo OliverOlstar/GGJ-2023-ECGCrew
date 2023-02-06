@@ -122,7 +122,8 @@ MonoBehaviour:
     pitch: {x: 0.9, y: 1.2}
   door: {fileID: 3437962419691643896}
   doorB: {fileID: 0}
-  canOpen: 1
+  requiredItemID: -1
+  requiredItemCount: 0
 --- !u!65 &475167337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,8 +135,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 0.6, z: 0.1}
-  m_Center: {x: 0.00000011920929, y: 0, z: -0.000000059604645}
+  m_Size: {x: 1.0000002, y: 0.6, z: 0.221619}
+  m_Center: {x: 0.00000013076786, y: 0, z: -0.060809586}
 --- !u!1 &1522999901
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +259,8 @@ MonoBehaviour:
     pitch: {x: 0.9, y: 1.2}
   door: {fileID: 3437962419691643896}
   doorB: {fileID: 0}
-  canOpen: 1
+  requiredItemID: -1
+  requiredItemCount: 0
 --- !u!65 &1522999908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -270,8 +272,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 0.6, z: 0.1}
-  m_Center: {x: 0.00000011920929, y: 0, z: -0.000000059604645}
+  m_Size: {x: 1.0000002, y: 0.6, z: 0.21772018}
+  m_Center: {x: 0.00000013076786, y: 0, z: -0.05886015}
 --- !u!1 &1967858284
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,22 +658,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7250910376441019101, guid: e2f4303c4d69d7349bd6c441aee5ab5f, type: 3}
---- !u!208 &6179839328993378650
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2420090614191727086}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.008, y: 0.002, z: 0.014}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.004, z: 0.014}
-  m_TimeToStationary: 0.5
 --- !u!82 &3437962419691643903
 AudioSource:
   m_ObjectHideFlags: 0
@@ -768,6 +754,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!208 &6179839328993378650
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420090614191727086}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.008, y: 0.002, z: 0.014}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.004, z: 0.014}
+  m_TimeToStationary: 0.5
 --- !u!114 &3437962419691643896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,21 +798,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.0004727
-      outSlope: 1.0004727
+      inSlope: 1.5958406
+      outSlope: 1.5958406
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.071854964
+      outWeight: 0.06054011
     - serializedVersion: 3
-      time: 0.6724221
-      value: 0.25419995
-      inSlope: 0.9554831
-      outSlope: 0.9554831
+      time: 0.6591211
+      value: 0.36033204
+      inSlope: 0.18540345
+      outSlope: 0.18540345
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.19137524
     - serializedVersion: 3
       time: 1
       value: 1

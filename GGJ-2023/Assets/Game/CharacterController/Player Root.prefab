@@ -6575,7 +6575,7 @@ MonoBehaviour:
     priority: 0
   input: {fileID: 3827981511222998445}
   toggleObject: {fileID: 962155453}
-  distance: 1.5
+  distance: 3
   lineCastLayerMask:
     serializedVersion: 2
     m_Bits: 137

@@ -264,13 +264,14 @@ public class EnemyController : MonoBehaviour, IFSM
 		float minWaitTime = 2.5f;
 		float maxWaitTime = 4.0f;
 		float randomWaitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
+		agent.isStopped = true;
 		yield return new WaitForSeconds(randomWaitTime);
 
-		agent.isStopped = true;
-		yield return null;
 		agent.isStopped = false;
-
-		agent.SetDestination(target.position);
+		if (!agent.SetDestination(target.position))
+		{
+			OnWayPointReached();
+		}
 	}
 
 	/*

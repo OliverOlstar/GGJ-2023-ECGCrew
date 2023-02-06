@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 531466357937909251}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: DoorSingle_Wall_SideA_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &531466357937909251
 Transform:
@@ -47,17 +47,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aaeb771b0e778134db26cba59b8b01c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.963319e-13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aaeb771b0e778134db26cba59b8b01c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.044959307
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aaeb771b0e778134db26cba59b8b01c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aaeb771b0e778134db26cba59b8b01c1,
         type: 3}
@@ -102,7 +102,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaeb771b0e778134db26cba59b8b01c1,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaeb771b0e778134db26cba59b8b01c1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaeb771b0e778134db26cba59b8b01c1, type: 3}

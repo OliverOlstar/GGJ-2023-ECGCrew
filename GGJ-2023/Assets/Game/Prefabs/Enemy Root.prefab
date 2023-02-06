@@ -790,7 +790,7 @@ MonoBehaviour:
   walkSpeed: 1
   investigateBaseSpeed: 2
   currentInvestigateSpeed: 1
-  chaseSpeed: 4.25
+  chaseSpeed: 4
   chaseInterval: 0.33
   chaseTimer: 0
   playerChaseDistance: 10
