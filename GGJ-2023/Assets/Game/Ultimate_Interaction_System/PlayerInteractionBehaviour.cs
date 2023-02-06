@@ -79,8 +79,8 @@ public class PlayerInteractionBehaviour : MonoUtil.MonoBehaviour
 				if (interactable.Item2.IsSelectable)
 				{
 					selected = true;
-					toggleObject.SetActive(false);
 				}
+				toggleObject.SetActive(false);
 			}
 		}
 	}
