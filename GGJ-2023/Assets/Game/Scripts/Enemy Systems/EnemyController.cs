@@ -108,6 +108,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		if (characterState == EnemyPatrolState.CHASE && collision.gameObject.TryGetComponent(out CharacterController controller))
 		{
 			// Game Over..
+			Debug.Log("Collided");
 		}
 	}
 

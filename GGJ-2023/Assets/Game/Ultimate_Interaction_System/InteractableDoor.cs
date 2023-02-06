@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableDoor : MonoBehaviour, IPlayerInteractable
@@ -23,6 +21,8 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 
 	[SerializeField]
 	private int requiredItemID = -1;
+	[SerializeField]
+	private int requiredItemCount = 0;
 
 	public bool IsSelectable => false;
 
@@ -31,7 +31,7 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 
 	public void Select()
 	{
-		if (requiredItemID >= 0 && !Item.Inventory.Contains(requiredItemID))
+		if (requiredItemID >= 0 && !Item.Inventory.Contains(requiredItemID) || Item.Inventory.Count < requiredItemCount)
 		{
 			failAudio.Play(audioSource);
 			return;
