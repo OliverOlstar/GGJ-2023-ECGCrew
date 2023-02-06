@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinDetection : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class WinDetection : MonoBehaviour
 	{
 		if (other.GetComponent<CharacterController>())
 		{
-			Application.Quit();
+			SceneManager.LoadScene("Win");
 		}
 	}
 }

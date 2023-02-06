@@ -1,8 +1,10 @@
+using OliverLoescher;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public enum EnemyPatrolState
 {
@@ -41,6 +43,12 @@ public class EnemyController : MonoBehaviour, IFSM
 	private Transform target = null;
 	[SerializeField]
 	private GameObject model = null;
+
+	[Header("Audio")]
+	[SerializeField]
+	private AudioSourcePool audioSource = null;
+	[SerializeField]
+	private AudioUtil.AudioPiece monsterSFX = new AudioUtil.AudioPiece();
 
 	[Header("Settings")]
 	[SerializeField]
@@ -103,12 +111,11 @@ public class EnemyController : MonoBehaviour, IFSM
 		}
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	private void OnTriggerStay(Collider other)
 	{
-		if (characterState == EnemyPatrolState.CHASE && collision.gameObject.TryGetComponent(out CharacterController controller))
+		if (characterState == EnemyPatrolState.CHASE && other.gameObject.TryGetComponent(out CharacterController controller))
 		{
-			// Game Over..
-			Debug.Log("Collided");
+			SceneManager.LoadScene("GameOver");
 		}
 	}
 
@@ -143,6 +150,11 @@ public class EnemyController : MonoBehaviour, IFSM
 	#region States
 	void IFSM.OnStateTransition(EnemyPatrolState state)
 	{
+		if (characterState == state)
+		{
+			return;
+		}
+
 		characterState = state;
 
 		switch (characterState)
@@ -161,6 +173,7 @@ public class EnemyController : MonoBehaviour, IFSM
 				break;
 			case EnemyPatrolState.CHASE:
 				Log("Chasing player!");
+				monsterSFX.Play(audioSource.GetSource());
 				Chase();
 				break;
 			default:
