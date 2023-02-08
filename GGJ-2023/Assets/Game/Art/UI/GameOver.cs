@@ -14,28 +14,20 @@ public class GameOver : MonoBehaviour
 	[SerializeField]
 	private int sceneToLoad = 0;
 	private bool inputEnabled = false;
-
-	private void OnEnable()
+	
+	private IEnumerator Start()
 	{
-		StartCoroutine(EnableInputRoutine());
+		inputEnabled = false;
+		yield return new WaitForSeconds(delay);
+		inputEnabled = true;
 	}
 
-	private void Update()
+	public void InputExit()
 	{
 		if (inputEnabled == false)
 		{
 			return;
 		}
-
-		if (Input.GetMouseButtonDown(0))
-		{
-			SceneManager.LoadScene(sceneToLoad);
-		}
-	}
-
-	private IEnumerator EnableInputRoutine()
-	{
-		yield return new WaitForSeconds(delay);
-		inputEnabled = true;
+		SceneManager.LoadScene(sceneToLoad);
 	}
 }

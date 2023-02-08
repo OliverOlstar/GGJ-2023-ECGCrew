@@ -272,8 +272,10 @@ public class EnemyController : MonoBehaviour, IFSM
 		yield return new WaitForSeconds(randomWaitTime);
 
 		agent.isStopped = false;
+		NavMeshPath path = new NavMeshPath();
 		if (!agent.SetDestination(target.position))
 		{
+			agent.SetDestination(transform.position);
 			OnWayPointReached();
 		}
 	}
@@ -323,7 +325,7 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	private void Log(string log)
 	{
-		Debug.Log($"|{this}| {log}");
+		// Debug.Log($"|{this}| {log}");
 	}
 
 	private void OnDrawGizmos()

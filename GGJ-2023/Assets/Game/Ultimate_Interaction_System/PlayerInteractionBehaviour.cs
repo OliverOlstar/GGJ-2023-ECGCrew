@@ -32,13 +32,15 @@ public class PlayerInteractionBehaviour : MonoUtil.MonoBehaviour
 		{
 			return;
 		}
-		Vector3 posB = Position + Util.Horizontalize(Forward) * distance;
+		Vector3 posB = Position + Forward.normalized * distance;
 		if (Physics.Linecast(Position, posB, out RaycastHit hit, lineCastLayerMask))
 		{
+			// Debug.Log($"Hit - {hit.collider.gameObject.name}", hit.collider);
 			SwitchInteractable(hit.collider);
 		}
 		else
 		{
+			// Debug.Log($"Hit - miss");
 			SwitchInteractable(null);
 		}
 	}
@@ -90,7 +92,7 @@ public class PlayerInteractionBehaviour : MonoUtil.MonoBehaviour
 		if (MainCamera.Camera != null)
 		{
 			Gizmos.color = Color.cyan;
-			Vector3 posB = Position + Util.Horizontalize(Forward) * distance;
+			Vector3 posB = Position + Forward.normalized * distance;
 			Gizmos.DrawLine(Position, posB);
 		}
 	}

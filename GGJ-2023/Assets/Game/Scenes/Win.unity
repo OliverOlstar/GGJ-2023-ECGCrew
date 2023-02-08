@@ -485,9 +485,9 @@ MonoBehaviour:
     onPerformed:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Intro, Game
-          m_MethodName: Close
+        - m_Target: {fileID: 910339807}
+          m_TargetAssemblyTypeName: GameOver, Game
+          m_MethodName: InputExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
