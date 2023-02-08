@@ -65,6 +65,10 @@ public class EnemyController : MonoBehaviour, IFSM
 	private float chaseTimer = 0f;
 	[SerializeField]
 	private float playerChaseDistance = 10f;
+	[SerializeField]
+	private float minWaitTime = 3.0f;
+	[SerializeField]
+	private float maxWaitTime = 4.0f;
 
 	// TODO: Implement "Investigating" where the Enemy walks to the "Noise" spot or "Sprints" to the noise spot, depending on how "Aggresive" the enemy is
 	private float currentParanoia = 0f;
@@ -95,22 +99,6 @@ public class EnemyController : MonoBehaviour, IFSM
 		soundDetector.OnSoundDetected -= OnSoundDetectedHandler;
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.TryGetComponent(out Waypoint waypoint))
-		{
-			// Check if this Waypoint is our current destination
-			for (int i = 0; i < originalWaypoints.Length; i++)
-			{
-				if (currentWaypointIndex == i)
-				{
-					OnWayPointReached();
-					break;
-				}
-			}
-		}
-	}
-
 	private void OnTriggerStay(Collider other)
 	{
 		if (characterState == EnemyPatrolState.CHASE && other.gameObject.TryGetComponent(out CharacterController controller))
@@ -128,6 +116,11 @@ public class EnemyController : MonoBehaviour, IFSM
 			{
 				Chase();
 			}
+		}
+
+		if (!agent.isStopped && agent.remainingDistance <= 0.1f)
+		{
+			OnWayPointReached();
 		}
 	}
 
@@ -274,8 +267,6 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	private IEnumerator MoveNextWaypoint()
 	{
-		float minWaitTime = 2.5f;
-		float maxWaitTime = 4.0f;
 		float randomWaitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
 		agent.isStopped = true;
 		yield return new WaitForSeconds(randomWaitTime);
@@ -304,7 +295,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		if (characterState == EnemyPatrolState.PATROL && player == null)
 		{
 			IFSM fsm = this;
-			fsm.OnStateTransition(EnemyPatrolState.PATROL);
+			Patrol();
 		}
 	}
 

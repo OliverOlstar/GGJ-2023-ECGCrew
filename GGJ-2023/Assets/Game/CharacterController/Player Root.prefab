@@ -6299,7 +6299,7 @@ MonoBehaviour:
           m_CallState: 2
   lookDeltaInput:
     input: {x: 0, y: 0}
-    scalar: {x: 0.5, y: 0.4}
+    scalar: {x: 0.15, y: 0.1}
     normalize: 0
     invertY: 0
     onChanged:
@@ -6552,7 +6552,7 @@ MonoBehaviour:
   camera: {fileID: 3827981510785693922}
   character: {fileID: 3827981512213513268}
   controller: {fileID: 3827981512196475550}
-  crouchCharacterHeight: 0.5
+  crouchCharacterHeight: 0.4
   crouchCameraHeight: {x: 0.4, y: 1}
   crouchCameraRadius: 0.125
   crouchCameraLayerMask:
