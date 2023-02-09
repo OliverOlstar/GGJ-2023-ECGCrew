@@ -288,12 +288,14 @@ public class EnemyController : MonoBehaviour, IFSM
 	#region Event Handlers
 	private void OnPlayerDetectedHandler(CharacterController playerController)
 	{
+		if (characterState == EnemyPatrolState.CHASE) return;
 		player = playerController;
 		stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
 	}
 
 	private void OnSoundDetectedHandler(float volume, GameObject detectedObject)
 	{
+		if (characterState == EnemyPatrolState.CHASE || characterState == EnemyPatrolState.INVESTIGATE) return;
 		target = detectedObject.transform;
 		currentInvestigateSpeed = investigateBaseSpeed * volume;
 		stateMachine.OnStateTransition(EnemyPatrolState.INVESTIGATE);
