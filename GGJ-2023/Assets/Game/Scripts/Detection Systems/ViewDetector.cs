@@ -104,6 +104,10 @@ public class ViewDetector : MonoBehaviour
 		// Check if this Object is being blocked
 		origin.y += height / 2;
 		destination.y = origin.y;
+		if (InputBridge_FirstPersonPlayer.Instance.Crouch.Input)
+		{
+			destination.y -= 1.0f;
+		}
 		if (Physics.Linecast(origin, destination, occlusionMask))
 		{
 			return false;
@@ -270,6 +274,16 @@ public class ViewDetector : MonoBehaviour
 		foreach (GameObject detectedObject in detectedObjects)
 		{
 			Gizmos.DrawSphere(detectedObject.transform.position, detectedSphereRadius);
+
+			// Vector3 origin = transform.position;
+			// Vector3 destination = detectedObject.transform.position;
+			// origin.y += height / 2;
+			// destination.y = origin.y;
+			// if (InputBridge_FirstPersonPlayer.Instance.Crouch.Input)
+			// {
+			// 	destination.y -= 1.0f;
+			// }
+			// Gizmos.DrawLine(origin, destination);
 		}
 	}
 }

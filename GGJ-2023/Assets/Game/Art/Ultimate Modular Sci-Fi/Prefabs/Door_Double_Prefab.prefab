@@ -125,6 +125,8 @@ MonoBehaviour:
   requiredItemID: -1
   requiredItemCount: 0
   canOpen: 1
+  closeAfterDelay: 0
+  closeAfterDelayWithoutItemID: -1
 --- !u!65 &120408009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -391,6 +393,8 @@ MonoBehaviour:
   requiredItemID: -1
   requiredItemCount: 0
   canOpen: 1
+  closeAfterDelay: 0
+  closeAfterDelayWithoutItemID: -1
 --- !u!65 &1271187354
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -772,6 +776,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8198138958532212955, guid: b5b69965007a225448ba48450c9c6b8b, type: 3}
+--- !u!208 &774119740
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876603889919071411}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.007, y: 0.002, z: 0.014}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.007, y: 0.004, z: 0.014}
+  m_TimeToStationary: 0.5
 --- !u!114 &653960152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,15 +811,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.0004727
-      outSlope: 1.0004727
+      inSlope: 1.6718328
+      outSlope: 1.6718328
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.071854964
+      outWeight: 0.059310578
     - serializedVersion: 3
-      time: 0.6724221
-      value: 0.25419995
+      time: 0.7135598
+      value: 0.39805982
       inSlope: 0.9554831
       outSlope: 0.9554831
       tangentMode: 0
@@ -809,11 +829,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.0176373
-      outSlope: 1.0176373
+      inSlope: 0.22382438
+      outSlope: 0.22382438
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.14289816
+      inWeight: 0.25750774
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -868,22 +888,6 @@ MonoBehaviour:
   useClamp: 1
   timeClamp: {x: 0, y: 4}
   reverse: 1
---- !u!208 &774119740
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876603889919071411}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.007, y: 0.002, z: 0.014}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0.007, y: 0.004, z: 0.014}
-  m_TimeToStationary: 0.5
 --- !u!4 &2929767787191497744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5b69965007a225448ba48450c9c6b8b,
@@ -910,6 +914,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4712199377648009068, guid: b5b69965007a225448ba48450c9c6b8b, type: 3}
+--- !u!208 &200214696
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674423797543622133}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.007, y: 0.002, z: 0.014}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.007, y: 0.004, z: 0.014}
+  m_TimeToStationary: 0.5
 --- !u!114 &653960151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,15 +949,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.0004727
-      outSlope: 1.0004727
+      inSlope: 1.6718328
+      outSlope: 1.6718328
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.071854964
+      outWeight: 0.059310578
     - serializedVersion: 3
-      time: 0.6724221
-      value: 0.25419995
+      time: 0.7135598
+      value: 0.39805982
       inSlope: 0.9554831
       outSlope: 0.9554831
       tangentMode: 0
@@ -947,11 +967,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.0176373
-      outSlope: 1.0176373
+      inSlope: 0.22382438
+      outSlope: 0.22382438
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.14289816
+      inWeight: 0.25750774
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1006,19 +1026,3 @@ MonoBehaviour:
   useClamp: 1
   timeClamp: {x: 0, y: 4}
   reverse: 1
---- !u!208 &200214696
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6674423797543622133}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.007, y: 0.002, z: 0.014}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: -0.007, y: 0.004, z: 0.014}
-  m_TimeToStationary: 0.5

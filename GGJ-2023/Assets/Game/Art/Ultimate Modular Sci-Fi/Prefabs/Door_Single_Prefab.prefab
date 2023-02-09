@@ -118,12 +118,15 @@ MonoBehaviour:
   doorCloseAudio:
     clips:
     - {fileID: 8300000, guid: b5083bfb0dc57ae429445e6509ef1d84, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: {x: 0.9, y: 1.2}
   door: {fileID: 3437962419691643896}
   doorB: {fileID: 0}
   requiredItemID: -1
   requiredItemCount: 0
+  canOpen: 1
+  closeAfterDelay: 0
+  closeAfterDelayWithoutItemID: -1
 --- !u!65 &475167337
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -255,12 +258,15 @@ MonoBehaviour:
   doorCloseAudio:
     clips:
     - {fileID: 8300000, guid: b5083bfb0dc57ae429445e6509ef1d84, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: {x: 0.9, y: 1.2}
   door: {fileID: 3437962419691643896}
   doorB: {fileID: 0}
   requiredItemID: -1
   requiredItemCount: 0
+  canOpen: 1
+  closeAfterDelay: 0
+  closeAfterDelayWithoutItemID: -1
 --- !u!65 &1522999908
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 {
@@ -19,18 +22,24 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 	[SerializeField]
 	private Motion doorB = null;
 
-	[SerializeField]
+	[Space, SerializeField]
 	private int requiredItemID = -1;
 	[SerializeField]
 	private int requiredItemCount = 0;
 	[SerializeField]
 	private bool canOpen = true;
 
+	[SerializeField]
+	private float closeAfterDelay = 0.0f;
+	[SerializeField]
+	private int closeAfterDelayWithoutItemID = -1;
+
 	public bool IsSelectable => false;
 
 	public void Hover() { }
 	public void UnHover() { }
 
+	[Button]
 	public void Select()
 	{
 		if (!canOpen || (requiredItemID >= 0 && !Item.Inventory.Contains(requiredItemID)) || Item.Inventory.Count < requiredItemCount)
@@ -38,6 +47,8 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 			failAudio.Play(audioSource);
 			return;
 		}
+
+		StopAllCoroutines();
 
 		confirmAudio.Play(audioSource);
 		door.Play(!door.reverse);
@@ -52,7 +63,27 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 		else
 		{
 			doorOpenAudio.Play(doorAudioSource);
+
+			if (closeAfterDelay > 0.0f && !Item.Inventory.Contains(closeAfterDelayWithoutItemID))
+			{
+				StartCoroutine(CloseAfterDelay());
+			}
 		}
 	}
 	public void UnSelect() { }
+
+	private IEnumerator CloseAfterDelay()
+	{
+		yield return new WaitForSeconds(closeAfterDelay);
+		
+		if (!door.reverse)
+		{
+			door.Play(true);
+			if (doorB != null)
+			{
+				doorB.Play(door.reverse);
+			}
+			doorCloseAudio.Play(doorAudioSource);
+		}
+	}
 }
