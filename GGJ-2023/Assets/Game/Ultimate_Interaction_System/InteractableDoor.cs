@@ -34,6 +34,12 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 	[SerializeField]
 	private int closeAfterDelayWithoutItemID = -1;
 
+	[SerializeField]
+	private SoundEmitter emitter = null;
+	[SerializeField]
+	private float soundEmissionVolume = 15f;
+
+
 	public bool IsSelectable => false;
 
 	public void Hover() { }
@@ -42,6 +48,7 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 	[Button]
 	public void Select()
 	{
+		EmitSound();
 		if (!canOpen || (requiredItemID >= 0 && !Item.Inventory.Contains(requiredItemID)) || Item.Inventory.Count < requiredItemCount)
 		{
 			failAudio.Play(audioSource);
@@ -85,5 +92,12 @@ public class InteractableDoor : MonoBehaviour, IPlayerInteractable
 			}
 			doorCloseAudio.Play(doorAudioSource);
 		}
+
+		EmitSound();
+	}
+
+	private void EmitSound()
+	{
+		emitter.Emit(soundEmissionVolume);
 	}
 }

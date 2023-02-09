@@ -71,7 +71,6 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 
     protected override void Tick(float pDeltaTime)
     {
-
 		float minSoundThreshold = 0.1f;
 		if (velocity.magnitude < minSoundThreshold)
 		{
@@ -89,7 +88,7 @@ public class FirstPersonCharacterController : MonoUtil.MonoBehaviour2
 		}
 		velocity -= velocity * drag * pDeltaTime;
 		Character.SimpleMove(velocity * pDeltaTime);
-		if (volume > 0) Emitter?.Emit((int)currentMovementState);
+		if (volume > 0) Emitter?.Emit(volume);
     }
 
 	private bool AddMovement(float pDeltaTime)

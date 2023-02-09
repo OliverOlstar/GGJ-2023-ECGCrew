@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 120408011}
   - component: {fileID: 120408010}
   - component: {fileID: 120408009}
+  - component: {fileID: 3580174161086094997}
   m_Layer: 7
   m_Name: DoorInteractable A
   m_TagString: Untagged
@@ -127,6 +128,8 @@ MonoBehaviour:
   canOpen: 1
   closeAfterDelay: 0
   closeAfterDelayWithoutItemID: -1
+  emitter: {fileID: 3580174161086094997}
+  soundEmissionVolume: 5
 --- !u!65 &120408009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,6 +143,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000004, y: 0.6, z: 0.3127093}
   m_Center: {x: 0.00000013076786, y: 0, z: -0.10635463}
+--- !u!114 &3580174161086094997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120408007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580d10a3291a1c44dbd626f8ceea628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &259237976
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +296,7 @@ GameObject:
   - component: {fileID: 1271187356}
   - component: {fileID: 1271187355}
   - component: {fileID: 1271187354}
+  - component: {fileID: 6216979546415194982}
   m_Layer: 7
   m_Name: DoorInteractable B
   m_TagString: Untagged
@@ -395,6 +411,8 @@ MonoBehaviour:
   canOpen: 1
   closeAfterDelay: 0
   closeAfterDelayWithoutItemID: -1
+  emitter: {fileID: 6216979546415194982}
+  soundEmissionVolume: 5
 --- !u!65 &1271187354
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -408,6 +426,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000004, y: 0.6, z: 0.3722286}
   m_Center: {x: 0.00000013076786, y: 0, z: -0.13611433}
+--- !u!114 &6216979546415194982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271187352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580d10a3291a1c44dbd626f8ceea628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1949998753
 GameObject:
   m_ObjectHideFlags: 0

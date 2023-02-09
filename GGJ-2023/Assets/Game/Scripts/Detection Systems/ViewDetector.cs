@@ -83,14 +83,6 @@ public class ViewDetector : MonoBehaviour
 		}
 		*/
 
-		/* ORDER OF DETECTION
-		 * 1. Check the distance between the Player and this
-		 * 2. Get the players Character Controller
-		 * 3. Check if the Player is within the View Mesh
-		 * 4. Check if the Character Controllers Center.Y is less than or equal to the Objects height that is "blocking" them
-		 * 5. Detect the Player if they are not behind cover
-		 */
-
 		detectedObject.TryGetComponent(out CharacterController player);
 
 		// Check if the Object is within the ViewMesh
@@ -116,7 +108,7 @@ public class ViewDetector : MonoBehaviour
 		// Check if the Player is standing or crouched behind an obstacle using the Character Controllers Center.Y
 		if (player)
 		{
-			if (direction.x <= instantDetectionDistance)
+			if (direction.z <= instantDetectionDistance)
 			{
 				OnPlayerDetected?.Invoke(player);
 			}
@@ -131,6 +123,14 @@ public class ViewDetector : MonoBehaviour
 		{
 			return false;
 		}
+	}
+
+	public void UpdateDetector(float angle, float distance, float height)
+	{
+		this.angle = angle;
+		this.distance = distance;
+		this.height = height;
+		detectionMesh = CreateViewMesh();
 	}
 
 	private void UpdateFrequency()

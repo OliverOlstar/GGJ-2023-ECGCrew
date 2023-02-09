@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SoundDetector : MonoBehaviour
 {
+	private const float MIN_SOUND_DETECTION_VOLUME = 2f;
+
 	public Action<CharacterController> OnPlayerDetected;
 	public Action<float, GameObject> OnSoundDetected;
 
@@ -12,31 +14,11 @@ public class SoundDetector : MonoBehaviour
 	private void OnEnable() => SoundEmitter.OnSoundEmitted += OnSoundEmittedHandler;
 	private void OnDisable() => SoundEmitter.OnSoundEmitted -= OnSoundEmittedHandler;
 
-	private void OnTriggerEnter(Collider other)
-	{
-		/*
-		if (other.TryGetComponent(out CharacterController playerController))
-		{
-			OnPlayerDetected?.Invoke(playerController);
-		}
-		*/
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		/*
-		if (other.TryGetComponent(out CharacterController playerController))
-		{
-			OnPlayerDetected?.Invoke(playerController);
-		}
-		*/
-	}
-
 	private void OnSoundEmittedHandler(float volume, GameObject sourceObject)
 	{
-		Log($"Sound <color=green>-Emitted-</color> from {sourceObject}, volume: {volume}");
 		float distance = Vector3.Distance(transform.position, sourceObject.transform.position);
-		if (distance <= soundDetectionDistance)
+		float volumeDistance = (volume - distance) + MIN_SOUND_DETECTION_VOLUME;
+		if (distance <= soundDetectionDistance && volumeDistance >= MIN_SOUND_DETECTION_VOLUME)
 		{
 			Log($"Sound <color=red>-Detected-</color> from {sourceObject}");
 			OnSoundDetected?.Invoke(volume, sourceObject);

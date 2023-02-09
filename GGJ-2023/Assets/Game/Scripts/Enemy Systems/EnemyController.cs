@@ -47,8 +47,10 @@ public class EnemyController : MonoBehaviour, IFSM
 	[Header("Audio")]
 	[SerializeField]
 	private AudioSourcePool audioSource = null;
+	// TODO: Rename to "Monster Chase SFX"
 	[SerializeField]
 	private AudioUtil.AudioPiece monsterSFX = new AudioUtil.AudioPiece();
+	// TODO: Add "Monster Alerted SFX"
 
 	[Header("Settings")]
 	[SerializeField]
@@ -69,12 +71,27 @@ public class EnemyController : MonoBehaviour, IFSM
 	private float minWaitTime = 3.0f;
 	[SerializeField]
 	private float maxWaitTime = 4.0f;
+	[SerializeField]
+	private float defaultViewDistance = 5f;
+	[SerializeField]
+	private float defaultViewAngle = 30f;
+	[SerializeField]
+	private float defaultViewHeight = 0.5f;
+	[SerializeField]
+	private float investigateViewDistance = 6f;
+	[SerializeField]
+	private float investigateViewAngle = 45f;
+	// -1 Lowers the height - which we want for when the player is Crouching
+	[SerializeField]
+	private float investigateViewHeight = -1f;
+
 
 	// TODO: Implement "Investigating" where the Enemy walks to the "Noise" spot or "Sprints" to the noise spot, depending on how "Aggresive" the enemy is
 	private float currentParanoia = 0f;
 	private CharacterController player = null;
 	private int currentWaypointIndex = 0;
 	private Waypoint currentWaypoint = null;
+	private IFSM stateMachine = null;
 
 	private void OnEnable()
 	{
@@ -149,6 +166,7 @@ public class EnemyController : MonoBehaviour, IFSM
 		}
 
 		characterState = state;
+		viewDetector.UpdateDetector(defaultViewAngle, defaultViewDistance, defaultViewHeight);
 
 		switch (characterState)
 		{
@@ -158,7 +176,7 @@ public class EnemyController : MonoBehaviour, IFSM
 				break;
 			case EnemyPatrolState.INVESTIGATE:
 				Log("Investigating...");
-				Investigate();
+				StartCoroutine(InvestigateRoutine());
 				break;
 			case EnemyPatrolState.SEARCH:
 				Log("Searching...");
@@ -167,11 +185,20 @@ public class EnemyController : MonoBehaviour, IFSM
 			case EnemyPatrolState.CHASE:
 				Log("Chasing player!");
 				monsterSFX.Play(audioSource.GetSource());
-				Chase();
+				StartCoroutine(ChaseRoutine());
 				break;
 			default:
 				break;
 		}
+	}
+
+	private IEnumerator ChaseRoutine()
+	{
+		agent.isStopped = true;
+		float preChaseDelay = 0.5f;
+		yield return new WaitForSeconds(preChaseDelay);
+		agent.isStopped = false;
+		Chase();
 	}
 
 	private void Chase()
@@ -181,7 +208,6 @@ public class EnemyController : MonoBehaviour, IFSM
 		{
 			// When losing the player, "Search" for them by creating some new Waypoints around the Enemy so they patrol this new area instead
 			player = null;
-			IFSM stateMachine = this;
 			// TODO: SWITCH TO SEARCH AND FIX SEARCHING!
 			stateMachine.OnStateTransition(EnemyPatrolState.INVESTIGATE);
 			return;
@@ -204,21 +230,44 @@ public class EnemyController : MonoBehaviour, IFSM
 		StartCoroutine(MoveNextWaypoint());
 	}
 
-	private void Investigate()
+	private IEnumerator InvestigateRoutine()
 	{
-		// TODO: Make the Vision Cone "bigger" if investigating
-		if (player == null)
+
+		viewDetector.UpdateDetector(investigateViewAngle, investigateViewDistance, investigateViewHeight);
+
+		if (characterState == EnemyPatrolState.INVESTIGATE)
 		{
-			if (characterState == EnemyPatrolState.INVESTIGATE)
+			ModifyAgentSpeed(currentInvestigateSpeed);
+			agent.SetDestination(target.position);
+
+			float minDetectableDistance = 3.0f;
+			target.TryGetComponent(out CharacterController characterController);
+			// Move to the Investigation location and Chase the Player if we find them
+			if (characterController != null)
 			{
-				ModifyAgentSpeed(currentInvestigateSpeed);
-				agent.SetDestination(target.position);
+				while (Vector3.Distance(transform.position, target.position) > minDetectableDistance)
+				{
+					if (Vector3.Distance(transform.position, characterController.transform.position) < minDetectableDistance)
+					{
+						player = characterController;
+						stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
+						break;
+					}
+					yield return null;
+				}
 			}
-		}
-		else
-		{
-			IFSM stateMachine = this;
-			stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
+
+			// Chase the Player if we find them *after* getting to the Target Location
+			if (characterController != null && Vector3.Distance(transform.position, characterController.transform.position) < minDetectableDistance)
+			{
+				player = characterController;
+				stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
+			}
+			// Return to Patrolling otherwise
+			else
+			{
+				stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
+			}
 		}
 	}
 
@@ -235,35 +284,41 @@ public class EnemyController : MonoBehaviour, IFSM
 	}
 	#endregion
 
+
+	#region Event Handlers
 	private void OnPlayerDetectedHandler(CharacterController playerController)
 	{
 		player = playerController;
-		IFSM stateMachine = this;
 		stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
 	}
 
 	private void OnSoundDetectedHandler(float volume, GameObject detectedObject)
 	{
 		target = detectedObject.transform;
-		IFSM stateMachine = this;
 		currentInvestigateSpeed = investigateBaseSpeed * volume;
 		stateMachine.OnStateTransition(EnemyPatrolState.INVESTIGATE);
 	}
 
 	private void OnBecameParanoidHandler(CharacterController playerController)
 	{
+		if (characterState == EnemyPatrolState.CHASE || characterState == EnemyPatrolState.INVESTIGATE)
+		{
+			return;
+		}
+
 		int paranoia = 10;
 		currentParanoia += paranoia;
 
 		if (currentParanoia > PARANOID_LIMIT)
 		{
+			Debug.Log($"{this} became Paranoid");
 			currentParanoia = 0;
-			IFSM stateMachine = this;
 			player = playerController;
 			target = player.transform;
-			stateMachine.OnStateTransition(EnemyPatrolState.CHASE);
+			stateMachine.OnStateTransition(EnemyPatrolState.INVESTIGATE);
 		}
 	}
+	#endregion
 
 	private IEnumerator MoveNextWaypoint()
 	{
@@ -280,23 +335,10 @@ public class EnemyController : MonoBehaviour, IFSM
 		}
 	}
 
-	/*
-	private void RotateTowardsTarget()
-	{
-		Vector3 turnTowardNavSteeringTarget = agent.steeringTarget;
-
-		Vector3 rotDirection = (turnTowardNavSteeringTarget - transform.position).normalized;
-		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(rotDirection.x, 0, rotDirection.z));
-		float rotateTime = 5f;
-		model.transform.rotation = Quaternion.Slerp(model.transform.rotation, lookRotation, Time.deltaTime * rotateTime);
-	}
-	*/
-
 	private void OnWayPointReached()
 	{
 		if (characterState == EnemyPatrolState.PATROL && player == null)
 		{
-			IFSM fsm = this;
 			Patrol();
 		}
 	}
@@ -317,10 +359,9 @@ public class EnemyController : MonoBehaviour, IFSM
 		currentWaypointIndex = 0;
 		currentWaypoint = null;
 		target = originalWaypoints[currentWaypointIndex].transform;
-		//agent.updateRotation = true;
 		agent.isStopped = true;
-		IFSM fsm = this;
-		fsm.OnStateTransition(EnemyPatrolState.PATROL);
+		stateMachine = this;
+		stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
 	}
 
 	private void Log(string log)
