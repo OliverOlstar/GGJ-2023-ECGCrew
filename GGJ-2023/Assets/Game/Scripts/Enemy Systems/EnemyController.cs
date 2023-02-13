@@ -92,6 +92,7 @@ public class EnemyController : MonoBehaviour, IFSM
 	private int currentWaypointIndex = 0;
 	private Waypoint currentWaypoint = null;
 	private IFSM stateMachine = null;
+	private bool isChasing = false;
 
 	private void OnEnable()
 	{
@@ -118,7 +119,7 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	private void OnTriggerStay(Collider other)
 	{
-		if (characterState == EnemyPatrolState.CHASE && other.gameObject.TryGetComponent(out CharacterController controller))
+		if (isChasing && other.gameObject.TryGetComponent(out CharacterController controller))
 		{
 			SceneManager.LoadScene("GameOver");
 		}
@@ -164,9 +165,10 @@ public class EnemyController : MonoBehaviour, IFSM
 		{
 			return;
 		}
-
+		
 		characterState = state;
 		viewDetector.UpdateDetector(defaultViewAngle, defaultViewDistance, defaultViewHeight);
+		isChasing = false;
 
 		switch (characterState)
 		{
@@ -177,10 +179,6 @@ public class EnemyController : MonoBehaviour, IFSM
 			case EnemyPatrolState.INVESTIGATE:
 				Log("Investigating...");
 				StartCoroutine(InvestigateRoutine());
-				break;
-			case EnemyPatrolState.SEARCH:
-				Log("Searching...");
-				Search();
 				break;
 			case EnemyPatrolState.CHASE:
 				Log("Chasing player!");
@@ -195,9 +193,10 @@ public class EnemyController : MonoBehaviour, IFSM
 	private IEnumerator ChaseRoutine()
 	{
 		agent.isStopped = true;
-		float preChaseDelay = 0.5f;
+		float preChaseDelay = 1.33f;
 		yield return new WaitForSeconds(preChaseDelay);
 		agent.isStopped = false;
+		isChasing = true;
 		Chase();
 	}
 
@@ -232,7 +231,6 @@ public class EnemyController : MonoBehaviour, IFSM
 
 	private IEnumerator InvestigateRoutine()
 	{
-
 		viewDetector.UpdateDetector(investigateViewAngle, investigateViewDistance, investigateViewHeight);
 
 		if (characterState == EnemyPatrolState.INVESTIGATE)
@@ -269,11 +267,6 @@ public class EnemyController : MonoBehaviour, IFSM
 				stateMachine.OnStateTransition(EnemyPatrolState.PATROL);
 			}
 		}
-	}
-
-	private void Search()
-	{
-
 	}
 
 	private void Stop()

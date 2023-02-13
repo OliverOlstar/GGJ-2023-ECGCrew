@@ -96,9 +96,10 @@ public class ViewDetector : MonoBehaviour
 		// Check if this Object is being blocked
 		origin.y += height / 2;
 		destination.y = origin.y;
+		float crouchOffset = 0.5f;
 		if (InputBridge_FirstPersonPlayer.Instance.Crouch.Input)
 		{
-			destination.y -= 1.0f;
+			destination.y -= crouchOffset;
 		}
 		if (Physics.Linecast(origin, destination, occlusionMask))
 		{
